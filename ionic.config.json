@@ -1,0 +1,7 @@
+{
+  "name": "tankup.driver.2.app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
