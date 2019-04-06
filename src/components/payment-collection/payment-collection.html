@@ -1,0 +1,25 @@
+<ion-card>
+
+    <form novalidate [formGroup]="form">
+      <ion-list>
+
+        <ion-item>
+          <ion-label floating>Amount Collected</ion-label>
+          <ion-input  type="number"  formControlName="amount" ></ion-input>
+        </ion-item>
+    
+      </ion-list>
+        
+    </form>
+        
+
+    <ion-row class="buttons">
+      <ion-col *ngIf="form.valid">
+        <button ion-button color="primary" block [disabled]="!form.valid" (tap)="saveAmount()">Save</button>
+      </ion-col>
+      <ion-col *ngIf="!form.valid">
+        <button ion-button color="danger" block [disabled]="form.valid" (tap)="close()">Close</button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>

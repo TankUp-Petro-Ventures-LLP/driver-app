@@ -1,0 +1,23 @@
+<ion-card text-center>
+
+  <div *ngIf="data.status">
+    <ion-icon ios="ios-happy" md="md-happy" class="icon" color="secondary"></ion-icon>
+    <h3>Payment Received</h3>
+    <h4>Amount</h4>
+    <h5>{{data.data.amount}}</h5>
+  </div>
+
+  <div *ngIf="!data.status">
+    <ion-icon ios="ios-alert" md="md-alert" class="icon" color="danger"></ion-icon>
+    <h3>Payment Not Received</h3>
+    <h4>Supervisor Authority</h4>
+    <h5>{{data.data.supervisor}}</h5>
+  </div>
+
+
+
+ <button ion-button color="primary" block (tap)="complete()" class="button">Complete</button>
+
+</ion-card>
+
+

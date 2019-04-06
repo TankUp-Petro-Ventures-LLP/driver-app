@@ -1,0 +1,22 @@
+<ion-card padding>
+    <ion-card-header text-center *ngIf='msg.heading'>
+      <b>{{msg?.heading}}</b>
+    </ion-card-header>
+  
+    <ion-card-content text-center *ngIf='msg.message'>
+     {{msg?.message}}
+    </ion-card-content>
+  
+  
+  
+    <ion-row>
+      <ion-col>
+        <button ion-button block color='secondary' (tap)="dissmiss()">
+          {{msg?.button}}
+        </button>
+      </ion-col>
+    </ion-row>
+  
+  
+  </ion-card>
+  

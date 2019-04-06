@@ -1,0 +1,25 @@
+<ion-card>
+
+  <form novalidate [formGroup]="form">
+
+
+    <ion-item>
+      <ion-label>Supervisor Approved</ion-label>
+      <ion-select formControlName="supervisor" >
+          <ion-option *ngFor="let supervisor of supervisors" >{{supervisor.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+
+  </form>
+
+  <ion-row class="buttons">
+    <ion-col *ngIf="form.valid">
+      <button ion-button color="primary" block [disabled]="!form.valid" (tap)="save()">Save</button>
+    </ion-col>
+    <ion-col *ngIf="!form.valid">
+      <button ion-button color="danger" block [disabled]="form.valid" (tap)="close()">Close</button>
+    </ion-col>
+  </ion-row>
+
+</ion-card>

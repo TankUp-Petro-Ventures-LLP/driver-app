@@ -1,0 +1,6 @@
+<ion-item>
+  <ion-label>Payment Method</ion-label>
+  <ion-select [selectOptions]="selectOptions">
+      <ion-option *ngFor="let method of methods" [selected]="method.id == default.id">{{method.name}}</ion-option>
+  </ion-select>
+</ion-item>
