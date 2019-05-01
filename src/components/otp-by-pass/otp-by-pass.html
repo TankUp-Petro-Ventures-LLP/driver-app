@@ -1,0 +1,39 @@
+<ion-header no-border>
+  <ion-navbar color='primary'>
+    <ion-title align="center">Edit Number</ion-title>
+    <ion-buttons end>
+      <button ion-button (tap)='dismiss()'>
+        <ion-icon ios="ios-close" md="md-close" style="float:right"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <form novalidate [formGroup]="form">
+      <ion-row>
+        <ion-col>
+          <ion-input type="text" formControlName="name" placeholder='Enter Name' id='test'
+            [disabled]='isDisabled'>
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input type="number" formControlName="phone_number" placeholder='Enter Phone Number' id='test'></ion-input>
+        </ion-col>
+      </ion-row>
+    </form>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button color="danger" block (tap)="dismiss()">Close</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button color="secondary" block [disabled]="!form.valid" (tap)="save()">Save</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

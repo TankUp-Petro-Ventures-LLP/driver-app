@@ -1,3 +1,38 @@
 page-home {
+  #logout {
+    zoom: 1.5;
+  }
 
+  .icon {
+    padding: 5px
+  }
+
+  .money-saved {
+    border: 1px solid orange;
+    height: 90px;
+  }
+
+  .consumption {
+    border: 1px solid orange;
+    height: 90px;
+  }
+
+  .carbon-reduction {
+    border: 1px solid orange;
+    height: 90px;
+  }
+
+  .div-for-analytics {
+    height: 40vh;
+    margin-top: 3em
+  }
+  .cheque{
+      zoom: 2.6;
+      color: #F76B1C;
+      padding-left: 0
+  }
+  #arrow{
+    position: absolute;
+    right: 20px;
+  }
 }

@@ -1,0 +1,18 @@
+page-nothing-found {
+    ion-content{
+        background: linear-gradient(color($colors, primary),color($colors, gradient2));
+    }  
+    p{
+        color: white;
+        font-size: 20pt
+    }
+    div{
+        margin: 0 auto;
+        position: relative;
+        top : 16em;  
+      }
+      #sad{
+          zoom: 5;
+          color: white
+      }
+}

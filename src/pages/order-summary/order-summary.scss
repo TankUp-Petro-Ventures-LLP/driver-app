@@ -1,0 +1,15 @@
+page-order-summary {
+    ion-content{
+        background: linear-gradient(color($colors, primary),color($colors, gradient2));
+    } 
+    h3{
+        color: white;
+        font-size: 20pt
+    } 
+    #head{
+        color: orange
+      }
+      ion-card{
+        border: 1px solid orange;
+      }
+}

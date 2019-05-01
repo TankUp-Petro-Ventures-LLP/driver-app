@@ -1,0 +1,28 @@
+<ion-content padding>
+  <div class="logo">
+    <img src="{{logo}}" alt="TankUp">
+  </div>
+  <ion-card align="center" class="card">
+    <form [formGroup]="dataFilling" (ngSubmit)="send()">
+      <ion-row>
+        <ion-col>
+          <ion-input type="number" formControlName="kilometer" id='test' placeholder='Enter Odometer Reading'></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input type="number" formControlName="meter_reading" id='test' placeholder='Enter Dispenser Meter Reading'></ion-input>
+        </ion-col>
+      </ion-row>
+      <br><br>
+
+      <ion-row>
+        <ion-col>
+          <button ion-button full color="primary" type="submit" [disabled]="!dataFilling.valid">Send</button>
+        </ion-col>
+      </ion-row>
+    </form>
+
+  </ion-card>
+
+</ion-content>

@@ -14,7 +14,7 @@ export class PaymentCollectionComponent {
   constructor(private formBuilder :FormBuilder, private viewCtrl : ViewController) {
 
     this.form = this.formBuilder.group({
-      amount: ['', [Validators.required]],
+      amount: ['', [Validators.required,Validators.min(1)]],
     });
 
   }

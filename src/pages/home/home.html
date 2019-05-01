@@ -1,18 +1,94 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+  <ion-navbar color='primary'>
+    <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+
+    <ion-title align="center">Home</ion-title>
+
+    <ion-buttons end>
+      <button ion-button (tap)="logout()" id='logout'>
+        LogOut <ion-icon ios="ios-exit" md="md-exit" class="icon"></ion-icon>
+      </button> </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <br>
+  <h3>Hello, {{user?.username}}</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button block primary color="primary" (click)="getOperation()">View  
+          <ion-icon ios="ios-arrow-dropright" md="md-arrow-dropright" id='arrow' ></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <div class="div-for-analytics" >
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-row>
+      <ion-col col-6 class="money-saved">
+        <ion-row>
+          <ion-col col-4>
+            <img height="50px" src={{money}} alt="Snow">
+          </ion-col>
+          <ion-col col-8>
+            <p style="font-size: 11px">Total Cash In Hand</p>
+            <p>
+              <b>Rs. {{analyticsData?.cash || 0}} </b>
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col col-6 class="consumption">
+        <ion-row>
+          <ion-col col-4>
+            <ion-icon ios="ios-paper" md="md-paper" class="cheque"></ion-icon>
+          
+          </ion-col>
+          <ion-col col-8>
+            <p style="font-size: 10px">Total Cheques In Hand </p>
+            <p>
+              <b>{{analyticsData?.cheque || 0}} </b>
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+
+    <!-- <div class="div-for-carbon" (click)="goToAnalytics()"> -->
+    <ion-row>
+      <ion-col col-6 class="carbon-reduction">
+        <ion-row>
+          <ion-col col-4>
+            <img height="50px" src={{pump}} alt="Snow">
+          </ion-col>
+          <ion-col col-8>
+            <p style="font-size: 11px">Total Delivered Quantity</p>
+            <p>
+              <b>{{analyticsData?.quantity || 0}}  </b>
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col col-6 class="carbon-reduction">
+          <ion-row>
+            <ion-col col-4>
+                <ion-icon ios="ios-list" md="md-list" class="cheque"></ion-icon>
+              </ion-col>
+            <ion-col col-8>
+              <p style="font-size: 11px">Total Orders Delivered</p>
+              <p>
+                <b>{{analyticsData?.order || 0}}  </b>
+              </p>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+    </ion-row>
+  </div>
+
 </ion-content>

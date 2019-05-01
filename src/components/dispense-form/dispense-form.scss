@@ -1,14 +1,25 @@
 dispense-form {
- .card {
-    margin-top: 70%;
- }
+  // .card {
+  //   margin-top: 70%;
+  // }
 
 
- ion-item{
-     border-bottom: 1px solid black;
- }
+  ion-item {
+    border-bottom: 1px solid black;
+  }
 
- button{
-     margin-top: 50px;
- }
+  button {
+    margin-top: 50px;
+  }
+
+  .card {
+    // border-radius: 10px;
+    border: 1px solid;
+    border-color: color($colors, primary);
+  }
+  #test{
+    margin-bottom: 1em;
+    border-bottom : 1px solid black;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
+}
 }

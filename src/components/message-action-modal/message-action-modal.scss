@@ -1,6 +1,8 @@
 message-action-modal {
-    margin-top: 70%;
-
+    // margin-top: 70%;
+    display: flex!important;
+    align-content: center!important;
+    align-items: center!important;
     ion-card-header{
         text-decoration: underline;
     }

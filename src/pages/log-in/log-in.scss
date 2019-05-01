@@ -1,0 +1,29 @@
+page-log-in {
+    ion-content{
+        background: linear-gradient(color($colors, primary),color($colors, gradient2));
+    }  
+    .logo {
+        width: 150px;   
+        margin: 0 auto;
+        position: relative;
+        top : 5em;
+    }
+    .card{
+        position:relative;
+        top: 7em;
+        background-color: white;
+        padding: 1em;
+        }  
+
+    #test{
+        margin-bottom: 1em;
+        border-bottom : 1px solid black;
+        border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
+    }
+    ion-icon{
+        margin-top: 0.5em;
+        zoom:1.5;
+    }
+
+
+}

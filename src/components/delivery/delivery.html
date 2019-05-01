@@ -1,34 +1,55 @@
-
 <ion-card>
-
   <ion-card-header>
-    Delivery Details
+    <ion-row>
+      <ion-col col-4 (tap)="call(supplyData.customer_number)" id='person'>
+        <ion-icon ios="ios-call" md="md-call"></ion-icon> Call:
+      </ion-col>
+      <ion-col col-5 id='icon' (tap)="call(supplyData.customer_number)">
+        <p><b>{{supplyData?.customer_name}}</b></p>
+      </ion-col>
+    </ion-row>
   </ion-card-header>
-
   <ion-card-content>
-
-    <table border="1" >
-      <tr>
-        <td>Customer</td>
-        <td>{{delivery.customer}}</td>
-      </tr>
-
-      <tr>
-        <td>Address</td>
-        <td>{{delivery.address}}</td>
-      </tr>
-
-      <tr>
-        <td>Quantity</td>
-        <td>{{delivery.quantity}}</td>
-      </tr>
-
-      <tr>
-        <td>Time For Delivery</td>
-        <td>{{delivery.time_of_delivery}}</td>
-      </tr>
-    </table>
-
+    <ion-row>
+      <ion-col col-4 id='address'>
+        <ion-icon ios="ios-home" md="md-home"></ion-icon>
+        Address:
+      </ion-col>
+      <ion-col col-8 id='icon'>
+        {{supplyData?.address}}
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>
+<ion-card>
+  <ion-card-content>
+    <ion-row>
+      <ion-col col-3  id='address'>
+        Date Time:
+      </ion-col>
+      <ion-col col-9>
+        <b>{{supplyData?.assigned_time}}</b>
+      </ion-col>
+    </ion-row>
+    <hr>
+    <ion-row>
+      <ion-col col-6 (tap)="call(supplyData.contact_person_number)"  id='person'>
+        <ion-icon ios="ios-call" md="md-call"></ion-icon>
+        Contact Person:
+      </ion-col>
+      <ion-col col-6>
+        <b>{{supplyData?.contact_person_name}}</b>
+      </ion-col>
+    </ion-row>
+    <hr>
+    <ion-row>
+        <ion-col col-6 id='person'>
+          Payment Mode:
+        </ion-col>
+        <ion-col col-6>
+          <b>{{supplyData?.payment_mode_name}}</b>
+        </ion-col>
+      </ion-row>
 
   </ion-card-content>
 

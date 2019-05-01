@@ -1,0 +1,15 @@
+change-quantity {
+    margin-top: 70%;
+
+   
+
+    .card{
+        border-radius: 10px;
+        border:1px solid;
+        border-color:color($colors,primary)
+    }
+    ion-input{
+        border:1px solid;
+        border-color:color($colors,primary)
+    }
+}

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import { NavParams, ViewController, Platform } from 'ionic-angular';
 
 @Component({
   selector: 'payment-final-status',
@@ -8,12 +8,19 @@ import { NavParams } from 'ionic-angular';
 export class PaymentFinalStatusComponent {
 
   public data
+  private backButtonUnregister: any;
 
-  constructor(private navParam : NavParams) {
+  constructor(private navParam : NavParams, private viewCtrl : ViewController,public platform: Platform) {
     this.data = this.navParam.get('data')
+    this.backButtonUnregister = platform.registerBackButtonAction(() => {});
+
   }
 
-
-
+  complete(){
+    this.viewCtrl.dismiss(this.data.data.amount)
+  }
+  ionViewWillLeave() {
+    this.backButtonUnregister();
+  }
 
 }

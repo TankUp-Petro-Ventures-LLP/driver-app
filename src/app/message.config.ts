@@ -1,7 +1,7 @@
 export const MessageConfig = {
     startDelivery : {
         heading : 'Start Delivery',
-        message : 'Delivery Suru karne Par Time start ho jayega',
+        message : 'Delivery Suru karne Par apki location save ho jayegi',
         button: {
             accept: "Suru Kardo",
             decline: "Nahi"
@@ -20,6 +20,18 @@ export const MessageConfig = {
         }
     } ,
 
+    meterReadingConfirmation : function(previous, current){
+        return {
+            // heading : 'Save Dispensing',
+            message : `Pakka yhi hai kyuki purani ${previous} ltr thi aur tumne abhi itni ${current} ,shi se check krlo?`,
+            button: {
+                accept: "Sahi hai",
+                decline: "Check Karo"
+              }
+        }
+    } ,
+
+
     askPaymentModal : {
             heading : 'Payment Mila',
             message : `Kya apko customer se payment mili`,
@@ -27,5 +39,30 @@ export const MessageConfig = {
                 accept: "Haan",
                 decline: "Nahi"
               }
-        }
+        },
+
+    completeFilling : {
+            // heading : 'Start Delivery',
+            message : 'Are You Sure?',
+            button: {
+                accept: "Yes",
+                decline: "No"
+              }
+        }, 
+    completeOrder : {
+        // heading : 'Start Delivery',
+        message : 'Are You Sure you want to complete order?',
+        button: {
+            accept: "Yes",
+            decline: "No"
+          }
+    }, 
+    sendHardZero : {
+        // heading : 'Start Delivery',
+        message : 'Kya sahi m gaadi zero hui hai?',
+        button: {
+            accept: "Haan",
+            decline: "Nahi"
+          }
+    }, 
 }

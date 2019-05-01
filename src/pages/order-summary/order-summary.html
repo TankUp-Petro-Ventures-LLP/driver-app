@@ -1,0 +1,61 @@
+<ion-header no-border>
+  <ion-navbar color='primary'>
+    <button ion-button icon-only menuToggle>
+      <!-- <ion-icon name="menu"></ion-icon> -->
+    </button>
+    <ion-title align="center"></ion-title>
+    <ion-buttons end>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div align='center'>
+    <h3><i>#Order Summary</i></h3>
+    <br>
+    <ion-card>
+      <ion-card-header id='head'>
+        {{supplyData?.customer_name}}
+      </ion-card-header>
+      <hr>
+      <ion-card-content>
+        <ion-row>
+          <ion-col col-4>
+            Address:
+          </ion-col>
+          <ion-col col-8 id='head'>
+            {{supplyData?.address}}
+          </ion-col>
+        </ion-row>
+        <hr>
+        <ion-row>
+          <ion-col col-4>
+            Contact Person:
+          </ion-col>
+          <ion-col col-8 id='head'>
+            {{supplyData?.contact_person_name}}
+          </ion-col>
+        </ion-row>
+        <hr>
+        <ion-row>
+          <ion-col col-4>
+            Quantity:
+          </ion-col>
+          <ion-col col-8 id='head'>
+            {{paymentData?.quantity}} Ltrs
+          </ion-col>
+        </ion-row>
+        <hr>
+        <ion-row *ngIf='showAmount'>
+          <ion-col col-4>
+            Amount:
+          </ion-col>
+          <ion-col col-8 id='head'>
+            {{obj?.amount | currency :'INR' :true}}
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+    <br>
+    <button ion-button round color='secondary' (tap)='goToNextOrder()'>Go To Next Order</button>
+  </div>
+</ion-content>

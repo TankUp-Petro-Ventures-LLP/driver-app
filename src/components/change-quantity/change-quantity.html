@@ -1,0 +1,15 @@
+<ion-card align="center" class="card" padding>
+  <ion-input #input type="number" id='input' placeholder='Enter Total Quantity Here' [(ngModel)]='quantity' autofocus></ion-input>
+
+  <br>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button block outline color='tankup' (tap)="revert()" type="submit">Close</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block color='tankup' (tap)="submit()" type="submit">Submit</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card>

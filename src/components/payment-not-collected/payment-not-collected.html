@@ -2,11 +2,10 @@
 
   <form novalidate [formGroup]="form">
 
-
     <ion-item>
       <ion-label>Supervisor Approved</ion-label>
-      <ion-select formControlName="supervisor" >
-          <ion-option *ngFor="let supervisor of supervisors" >{{supervisor.name}}</ion-option>
+      <ion-select formControlName="approved_by" class="dropdown" >
+          <ion-option *ngFor="let supervisor of supervisors" [value] = supervisor.id (ionSelect)='selectSupervisor(supervisor)'>{{supervisor.name}}</ion-option>
       </ion-select>
     </ion-item>
 

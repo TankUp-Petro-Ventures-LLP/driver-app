@@ -1,0 +1,41 @@
+{
+  "project_info": {
+    "project_number": "860273701577",
+    "firebase_url": "https://tankup-driver-app-60e91.firebaseio.com",
+    "project_id": "tankup-driver-app-60e91"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860273701577:android:81d2ad3789b15826",
+        "android_client_info": {
+          "package_name": "tankup.driver.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860273701577-miqfojf77vcjob3ttn9830op54nkn8kj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt1evbSA1AjZhTjw1QgFvC8YiWpZ1bVFI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

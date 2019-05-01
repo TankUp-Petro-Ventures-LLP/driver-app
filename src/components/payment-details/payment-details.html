@@ -1,26 +1,66 @@
-<table border="1" >
-  <tr>
-    <th>Dielse Amt</th>
-    <th>5000</th>
-  </tr>
-  <tr>
-    <th>Delivery Charge</th>
-    <th>30.98</th>
-  </tr>
-  <tr>
-    <th>SGST</th>
-    <th>4</th>
-  </tr>
-  <tr>
-    <th>CGST</th>
-    <th>4</th>
-  </tr>
-  <tr>
-    <th>Total Tax</th>
-    <th>8</th>
-  </tr>
-  <tr>
-    <th>Grand Total</th>
-    <th>6000</th>
-  </tr>
-</table>
+<ion-card>
+  <ion-card-header align='center'>
+    <h5><b>Current Order Payment Details</b></h5>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6><b>Filled Quantity:</b></ion-col>
+        <ion-col col-4>{{paymentData?.quantity}} ltrs</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6><b>Amount:</b></ion-col>
+        <ion-col col-6>{{paymentData?.amount | currency : 'INR'  :true}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6><b>Delivery Charge:</b></ion-col>
+        <ion-col col-6>{{paymentData?.delivery_charge | currency : 'INR'  :true}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6><b>GST:</b></ion-col>
+        <ion-col col-6>{{paymentData?.gst_total| currency : 'INR'  :true}}</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-6><b>Total Amount:</b></ion-col>
+        <ion-col col-6>{{paymentData?.grand_total | currency :'INR' :true}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <ion-card-header align='center'>
+    <h5><b>Previous Pending Amount</b></h5>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6><b>Pending Amount:</b></ion-col>
+        <ion-col col-4>{{paymentData?.previous_pending_amount | currency :'INR' :true}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <ion-card-header align='center'>
+    <h5><b>Money To Be Collected</b></h5>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+            <a style="font-size:15pt">
+              <b>Grand Total:</b>
+            </a>
+        </ion-col>
+        <ion-col col-6>
+          <a>
+            {{paymentData?.sum_previous_this_order_amount | currency :'INR' :true}}
+          </a>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

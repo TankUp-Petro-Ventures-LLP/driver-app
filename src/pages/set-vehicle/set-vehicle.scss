@@ -1,0 +1,24 @@
+page-set-vehicle {
+  ion-content {
+    background: linear-gradient(color($colors, primary), color($colors, gradient2));
+  }
+
+  .logo {
+    width: 150px;
+    margin: 0 auto;
+    position: relative;
+    top: 5em;
+  }
+
+  .card {
+    position: relative;
+    top: 7em;
+    background-color: white;
+    padding: 1em;
+  }
+
+  .dropdown{
+    max-width: 100% !important;
+   }
+
+}

@@ -1,0 +1,54 @@
+<ion-header no-border>
+  <ion-navbar color='primary'>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title align="center">Vendor Filling</ion-title>
+    <ion-buttons end>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-3>
+          <p>Vendor:</p>
+        </ion-col>
+        <ion-col>
+          <b>{{filling?.vendor_name}}</b>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-3>
+          <p>Quantity:</p>
+        </ion-col>
+        <ion-col>
+          <b>{{filling?.quantity}}Ltrs.</b>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card id='card'>
+    <form [formGroup]="formFilling" >
+      <ion-row>
+        <ion-input type="number" formControlName='quantity' id='test' placeholder='Enter Quantity'></ion-input>
+      </ion-row>
+      <ion-row>
+          <ion-input type="number" formControlName='rate' id='test' placeholder='Enter Rate'></ion-input>
+        </ion-row>
+      <ion-row>
+        <ion-textarea type="textarea" formControlName='comment' id='test' placeholder='Enter Comment'></ion-textarea>
+      </ion-row>
+      <ion-row>
+        <ion-input type="text" formControlName='voucher_no' id='test' placeholder='Enter Voucher No.'></ion-input>
+      </ion-row>
+    </form>
+
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <button ion-button block [disabled]='!formFilling.valid' id='test' (tap)="complete()">Complete</button>
+
+</ion-footer>

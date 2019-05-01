@@ -1,27 +1,42 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input,Output,EventEmitter } from '@angular/core';
+import { ApiTalkProvider } from '../../providers/api-talk/api-talk';
+import { Config } from '../../configuration/config';
 
 @Component({
   selector: 'payment-methods',
   templateUrl: 'payment-methods.html'
 })
 export class PaymentMethodsComponent {
-  @Input('default') default
-  public selectOptions = {
-    title: 'Payment Methods'
+  @Input('data') paymentData
+  @Output('result')  emit = new EventEmitter()
+
+  public payment_methods
+  public method
+
+  constructor(public apiTalk:ApiTalkProvider) {
+    this.getPaymentMethods()
   }
-
-  public methods = [
-    {name : 'cod', id:1},
-    {name : 'cheque', id:2},
-    {name : 'neft', id :3}
-  ]
-
-  constructor() {
-    this.default = this.methods[0]
-  }
-
+  
   ionViewDidLoad() {
   }
-
-
+  getPaymentMethods(){
+    return this.apiTalk.getData(Config.API_URL  + '/payment/option')
+    .then(res =>{
+      this.payment_methods = res['json']
+      console.log(this.payment_methods)
+      for(let i=0;i<this.payment_methods.length;i++){
+        if(this.payment_methods[i].id == this.paymentData.payment_mode){
+          this.method = this.payment_methods[i]
+          break
+        }
+      }      
+    })
+  }
+  emitData(method){
+    this.method = method
+    this.emitMethod()
+  }
+  emitMethod(){
+    this.emit.emit(this.method)
+  }
 }

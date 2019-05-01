@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title align="center">Hard Zero</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-fab right>
+      <button ion-fab (tap)='openCamera()'>
+        <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
+      </button>
+    </ion-fab>
+    <form [formGroup]="dataFilling" (ngSubmit)="send()">
+      <ion-row>
+        <ion-col>
+          <ion-input type="number" formControlName="meter_reading" id='test'
+            placeholder='Enter Dispenser Meter Reading'>
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p align='center'>
+            <img src="{{ image }}">
+          </p>
+        </ion-col>
+      </ion-row>
+      <br>
+      <ion-row>
+        <ion-col>
+          <button ion-button full color="primary" type="submit" [disabled]="!dataFilling.valid">Send</button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-card>
+</ion-content>

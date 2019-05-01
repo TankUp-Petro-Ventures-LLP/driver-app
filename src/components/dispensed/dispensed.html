@@ -1,13 +1,37 @@
-<table border="1" >
+<ion-card *ngFor="let data of supplyData">
+  <ion-card-content>
+    <ion-row>
+      <ion-col col-6>
+        Tank Number:
+      </ion-col>
+      <ion-col col-6>
+        <b>{{data.tank_name}}</b>
+      </ion-col>
+      <ion-col col-6>
+        Quantity:
+      </ion-col>
+      <ion-col col-3>
+        <b>{{data.show_quantity}}Ltrs</b>
+      </ion-col>
+      <ion-col col-3 align='right' *ngIf='editButton'>
+        <!-- <b>{{data.metadata}}</b> -->
+        <a (tap)='edit(data)'>Edit<ion-icon ios="ios-create" md="md-create" id='icon'></ion-icon></a>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        Meter Reading:
+      </ion-col>
+      <ion-col col-6>
+        <b>{{data.tank_reading}}</b>
+      </ion-col>
+      <!-- <ion-col col-3>
+        Comment:
+      </ion-col> -->
+      <!-- <ion-col col align='right' *ngIf='editButton'>
+        <a (tap)='edit(data)'>Edit<ion-icon ios="ios-create" md="md-create" id='icon'></ion-icon></a>
+      </ion-col> -->
+    </ion-row>
+  </ion-card-content>
 
-  <tr>
-    <th>Tank</th>
-    <th>Quantity</th>
-  </tr>
-
-  <tr *ngFor="let i of [1,2,3,4]">
-    <td>Tank</td>
-    <td>quantity</td>
-  </tr>
-  </table>
-
+</ion-card>

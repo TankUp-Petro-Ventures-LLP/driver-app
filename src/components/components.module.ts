@@ -10,6 +10,9 @@ import { PaymentDetailsComponent } from './payment-details/payment-details';
 import { PaymentCollectionComponent } from './payment-collection/payment-collection';
 import { PaymentNotCollectedComponent } from './payment-not-collected/payment-not-collected';
 import { PaymentFinalStatusComponent } from './payment-final-status/payment-final-status';
+import { ChangeQuantityComponent} from './change-quantity/change-quantity'
+import { OtpByPassComponent } from './otp-by-pass/otp-by-pass';
+
 @NgModule({
 	declarations: [DeliveryComponent,
     MessageModalComponent,
@@ -20,7 +23,9 @@ import { PaymentFinalStatusComponent } from './payment-final-status/payment-fina
     PaymentDetailsComponent,
     PaymentCollectionComponent,
     PaymentNotCollectedComponent,
-    PaymentFinalStatusComponent],
+    PaymentFinalStatusComponent,
+    ChangeQuantityComponent,
+    OtpByPassComponent],
 	imports: [IonicModule],
 	exports: [DeliveryComponent,
 	MessageModalComponent,
@@ -31,8 +36,11 @@ import { PaymentFinalStatusComponent } from './payment-final-status/payment-fina
     PaymentDetailsComponent,
     PaymentCollectionComponent,
     PaymentNotCollectedComponent,
-    PaymentFinalStatusComponent],
+    PaymentFinalStatusComponent,
+    ChangeQuantityComponent,
+    OtpByPassComponent],
 	entryComponents : [MessageModalComponent,MessageActionModalComponent, DispenseFormComponent,
-		PaymentCollectionComponent, PaymentNotCollectedComponent, PaymentFinalStatusComponent]
+        PaymentCollectionComponent, PaymentNotCollectedComponent, PaymentFinalStatusComponent,
+        ChangeQuantityComponent,OtpByPassComponent]
 })
 export class ComponentsModule {}
