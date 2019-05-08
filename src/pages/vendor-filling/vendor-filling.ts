@@ -39,8 +39,10 @@ public filling
     let permission = this.mdlCtrl.create(MessageActionModalComponent, {msg : MessageConfig.completeFilling})
     permission.present()
 
-    permission.onDidDismiss(data => {
+    permission.onDidDismiss(async data => {
       if(data){
+        let user = await this.cp.storageGet('user')
+        this.formFilling.value['driver_id']= user.id
         return this.apiTalk.putData(Config.API_URL+'/vehicle-purchase?id='+this.filling.id,this.formFilling.value)
         .then(async result =>{
           this.cp.presentLoadingText()

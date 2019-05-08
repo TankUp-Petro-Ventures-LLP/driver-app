@@ -122,15 +122,29 @@ export class OtpPage {
     add.present()
     add.onDidDismiss(data => {
       if(data){
-        let obj = {}
-        obj['order_supply_id'] = this.data.order_supply_id
-        obj['name'] = data.name
-        obj['type'] = eTankUpOperation.supply
-        obj['phone_number'] = data.phone_number
-        return this.apiTalk.postData(Config.API_URL + '/otp/generate?bypass='+true,obj)
-        .then(result => {
-          this.cp.presentAlert(result['json'].msg)
-        })
+        if(!this.filling_id){
+          let obj = {}
+          obj['order_supply_id'] = this.data.order_supply_id
+          obj['name'] = data.name
+          obj['type'] = eTankUpOperation.supply
+          obj['phone_number'] = data.phone_number
+          return this.apiTalk.postData(Config.API_URL + '/otp/generate?bypass='+true,obj)
+          .then(result => {
+            this.cp.presentAlert(result['json'].msg)
+          })
+        }
+        else{
+          let obj = {}
+          obj['filling_id'] = this.filling_id
+          obj['vendor_id'] = this.vendor_id
+          obj['name'] = data.name
+          obj['type'] = eTankUpOperation.filling
+          obj['phone_number'] = data.phone_number
+          return this.apiTalk.postData(Config.API_URL + '/otp/generate?bypass='+true,obj)
+          .then(result => {
+            this.cp.presentAlert(result['json'].msg)
+          })
+        }
       }
     })
   }

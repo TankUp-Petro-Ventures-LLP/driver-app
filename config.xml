@@ -88,9 +88,9 @@
     <plugin name="cordova-plugin-geolocation" spec="~4.0.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
     </plugin>
-    <plugin name="cordova-plugin-firebase" spec="^0.1.25" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
     <plugin name="cordova-plugin-file" spec="^6.0.1" />
     <plugin name="cordova-plugin-background-mode" spec="^0.7.2" />
-    <engine name="android" spec="7.0.0" />
+    <plugin name="cordova-plugin-firebase" spec="https://github.com/dpa99c/cordova-plugin-firebase#GH-1057-April-05-android-build-issue" />
+    <engine name="android" spec="7.1.4" />
 </widget>
