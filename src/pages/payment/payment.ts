@@ -153,10 +153,12 @@ public approved_by
     })
   }
 
-  completeSupply(){
+ async completeSupply(){
+    let user = await this.cp.storageGet('user')
     let obj = {}
     obj['end_time'] = Date()
     obj['order_status_id'] = Config.order_status_id_for_complete
+    obj['driver_id']= user.id
     return this.apiTalk.putData(Config.API_URL + '/supply?id='+ this.data.order_supply_id,obj)
   }
 

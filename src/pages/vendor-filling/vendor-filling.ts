@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, Platform } from 'ionic-angular';
 import { ApiTalkProvider } from '../../providers/api-talk/api-talk';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Config } from '../../configuration/config';
@@ -18,8 +18,10 @@ import { ComponentsProvider } from '../../providers/components/components';
 export class VendorFillingPage {
 public formFilling :FormGroup
 public filling
+public latitude
+public longitude
   constructor(public navCtrl: NavController, public navParams: NavParams,public apiTalk:ApiTalkProvider,private formBuilder :FormBuilder,public mdlCtrl:ModalController,
-    public cp:ComponentsProvider) {
+    public cp:ComponentsProvider,public platform:Platform) {
     this.formFilling = this.formBuilder.group({
       quantity: ['', Validators.required],
       rate: ['', Validators.required],
@@ -60,6 +62,19 @@ public filling
     obj['vendor_id'] = this.filling.vendor_id
     obj['type'] = eTankUpOperation.filling
     return this.apiTalk.postData(Config.API_URL + '/otp/generate',obj)
+  }
+
+  navigateToGMaps(){
+    this.latitude = this.filling.lat
+    this.longitude = this.filling.long
+    
+    let destination = this.latitude + ',' + this.longitude;
+    if(this.platform.is('ios')){
+      window.open('maps://?q=' + destination, '_system');
+    } else {
+      let label = encodeURI('My Label');
+      window.open('geo:0,0?q=' + destination + '(' + label + ')', '_system');
+    }
   }
 }
 

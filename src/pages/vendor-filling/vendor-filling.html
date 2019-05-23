@@ -27,6 +27,19 @@
           <b>{{filling?.quantity}}Ltrs.</b>
         </ion-col>
       </ion-row>
+      <ion-row>
+        <ion-col col-3>
+          <p>Address:</p>
+        </ion-col>
+        <ion-col>
+          <b>{{filling?.address}}</b>
+        </ion-col>
+      </ion-row>
+      <ion-fab top right>
+        <button ion-fab mini (tap)='navigateToGMaps()'>
+          <ion-icon ios="ios-navigate-outline" md="md-navigate"></ion-icon>
+        </button>
+      </ion-fab>
     </ion-card-content>
   </ion-card>
 
