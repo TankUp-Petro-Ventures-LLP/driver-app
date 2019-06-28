@@ -6,6 +6,8 @@ import { MessageConfig } from '../../app/message.config';
 import { ViewController, NavParams } from 'ionic-angular';
 import { ApiTalkProvider } from '../../providers/api-talk/api-talk';
 import { Config } from '../../configuration/config';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { BackgroundMode } from '@ionic-native/background-mode';
 
 @Component({
   selector: 'dispense-form',
@@ -19,8 +21,10 @@ export class DispenseFormComponent {
   public supplyDetails
   public result
   public tank_name
+  public image : any
+
   constructor(private viewCtrl : ViewController, private navParam : NavParams, private formBuilder :FormBuilder, private mdlCtrl : ModalController,
-    public apiTalk:ApiTalkProvider) {
+    public apiTalk:ApiTalkProvider,private backgroundMode: BackgroundMode, private camera: Camera) {
     this.form = this.formBuilder.group({
       tank_name: ['', [Validators.required]],//^(0|[1-9]\d*)$/
       tank_reading: ['',Validators.compose([ Validators.required,  Validators.pattern('^(0|[1-9][0-9]*)$')])],
@@ -47,6 +51,14 @@ export class DispenseFormComponent {
       save.present()
       save.onDidDismiss(data => {
         if(data){
+          let modal = this.mdlCtrl.create(MessageActionModalComponent,{msg:MessageConfig.slipConfirmation})
+          modal.present()
+          modal.onDidDismiss(async d => {
+            if(d){
+             await this.clickParchiPhoto()
+              this.sendParchi()
+            }
+          })
           this.viewCtrl.dismiss(this.form.value)
         }
       })
@@ -60,6 +72,39 @@ export class DispenseFormComponent {
         }
       })
     }
+  }
+
+  clickParchiPhoto(){
+      this.backgroundMode.enable();
+      const options: CameraOptions = {
+        quality: 60,
+        targetHeight:1280,
+        targetWidth:1280,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE,
+        // saveToPhotoAlbum: true
+      }
+      return new Promise((resolve, reject) => {
+        this.camera.getPicture(options).then((imageData) => {
+  
+        this.image = 'data:image/jpg;base64,' + imageData;
+        this.backgroundMode.disable()
+        resolve()
+        }, (err) => {
+          reject()
+        });
+      })
+      ;
+  }
+
+  sendParchi(){
+    let body = {}
+    body['body'] = this.image
+    let name = `${this.supplyDetails.order_supply_id}-${(new Date())}`
+    return this.apiTalk.putData(Config.aws_s3_bucket + '/image?bucket=sale.slips&filePath='+name,body)
+    .then(r => {
+    })
   }
 
   close(){

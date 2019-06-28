@@ -2,7 +2,10 @@ export class Config{
     static _API_URL : string = 'http://13.126.96.232:3000/api/';
 
     static API_URL = 'http://13.126.96.232:3000/api-v3';
-    // static API_URL = 'http://192.168.1.19:3000/api-v3';
+    // static API_URL = 'http://192.168.1.25:3000/api-v3';
+    static aws_s3_bucket = 'http://13.126.96.232:3009/s3'
+    // static aws_s3_bucket = 'http://192.168.1.19:3009/s3'
+
 
     static METER_URL = (vehicle_id) => {
         return 'vehicle/'+vehicle_id+'/meter';

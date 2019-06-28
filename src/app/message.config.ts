@@ -65,4 +65,12 @@ export const MessageConfig = {
             decline: "Nahi"
           }
     }, 
+
+    slipConfirmation: {
+        message : 'Kya apne Parchi Nikali hai?',
+        button: {
+            accept: "Haan",
+            decline: "Nahi"
+          }
+    }
 }
