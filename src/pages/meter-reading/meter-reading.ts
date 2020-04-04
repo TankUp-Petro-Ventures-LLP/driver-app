@@ -24,10 +24,20 @@ export class MeterReadingPage {
   public last_meter_reading
   constructor(public navCtrl: NavController, public navParams: NavParams,private formBuilder: FormBuilder,public apiTalk:ApiTalkProvider,
     public cp:ComponentsProvider,public mdlCtrl:ModalController) {
-    this.dataFilling = this.formBuilder.group({
-      meter_reading: ['',Validators.compose([ Validators.required, Validators.max(999999999), Validators.pattern('^(0|[1-9][0-9]*)$')])], ///^(0|[1-9][0-9]*)$/
-      kilometer: ['',Validators.compose([ Validators.required,  Validators.pattern('^(0|[1-9][0-9]*)$')])]
-    });
+    if(this.vehicle_id == '8'){
+      this.dataFilling = this.formBuilder.group({
+        meter_reading: ['',Validators.compose([ Validators.required, Validators.max(999999999), Validators.pattern('^(0|[1-9][0-9]*)$')])], ///^(0|[1-9][0-9]*)$/
+        kilometer: ['',Validators.compose([ Validators.required,  Validators.pattern('^(0|[1-9][0-9]*)$')])],
+        hour_meter_reading: ['',Validators.compose([Validators.required])]
+      });
+    }
+    else{
+      this.dataFilling = this.formBuilder.group({
+        meter_reading: ['',Validators.compose([ Validators.required, Validators.max(999999999), Validators.pattern('^(0|[1-9][0-9]*)$')])], ///^(0|[1-9][0-9]*)$/
+        kilometer: ['',Validators.compose([ Validators.required,  Validators.pattern('^(0|[1-9][0-9]*)$')])],
+        // hour_meter_reading: ['',Validators.compose([Validators.required])]
+      });
+    }
     this.loggedOut = navParams.get('logout'); 
 
   }
@@ -68,6 +78,7 @@ export class MeterReadingPage {
     let data = {}
     data['kilometer'] = this.dataFilling.value.kilometer
     data['meter_reading'] = this.dataFilling.value.meter_reading
+    data['hour_meter_reading'] = this.dataFilling.value.hour_meter_reading
     data['vehicle_id']  = this.vehicle_id
     if(!this.loggedOut){
       let save = this.mdlCtrl.create(MessageActionModalComponent, {msg : MessageConfig.meterReadingConfirmation(this.last_meter_reading, data['meter_reading'])})
@@ -102,6 +113,8 @@ export class MeterReadingPage {
 
     obj['kilometer'] = this.dataFilling.value.kilometer
     obj['meter_reading'] = this.dataFilling.value.meter_reading
+    obj['hour_meter_reading'] = this.dataFilling.value.hour_meter_reading
+
     this.cp.presentLoadingText()
     await this.apiTalk.postData(Config.API_URL+ '/vehicle/meter-reading?vehicle_id='+this.vehicle_id +'&type=MR', obj)
 
@@ -120,4 +133,5 @@ export class MeterReadingPage {
 class Meter{
   meter_reading:string
   kilometer:string
+  hour_meter_reading:string
 }

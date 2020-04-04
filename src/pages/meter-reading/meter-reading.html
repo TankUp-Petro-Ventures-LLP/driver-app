@@ -14,6 +14,11 @@
           <ion-input type="number" formControlName="meter_reading" id='test' placeholder='Enter Dispenser Meter Reading'></ion-input>
         </ion-col>
       </ion-row>
+      <ion-row *ngIf="vehicle_id == '8'">
+        <ion-col>
+          <ion-input type="number" formControlName="hour_meter_reading" id='test' placeholder='Enter Hour Meter Reading'></ion-input>
+        </ion-col>
+      </ion-row>
       <br><br>
 
       <ion-row>
