@@ -24,26 +24,30 @@ export class MeterReadingPage {
   public last_meter_reading
   constructor(public navCtrl: NavController, public navParams: NavParams,private formBuilder: FormBuilder,public apiTalk:ApiTalkProvider,
     public cp:ComponentsProvider,public mdlCtrl:ModalController) {
-    if(this.vehicle_id == '8'){
-      this.dataFilling = this.formBuilder.group({
-        meter_reading: ['',Validators.compose([ Validators.required, Validators.max(999999999), Validators.pattern('^(0|[1-9][0-9]*)$')])], ///^(0|[1-9][0-9]*)$/
-        kilometer: ['',Validators.compose([ Validators.required,  Validators.pattern('^(0|[1-9][0-9]*)$')])],
-        hour_meter_reading: ['',Validators.compose([Validators.required])]
-      });
-    }
-    else{
-      this.dataFilling = this.formBuilder.group({
-        meter_reading: ['',Validators.compose([ Validators.required, Validators.max(999999999), Validators.pattern('^(0|[1-9][0-9]*)$')])], ///^(0|[1-9][0-9]*)$/
-        kilometer: ['',Validators.compose([ Validators.required,  Validators.pattern('^(0|[1-9][0-9]*)$')])],
-        // hour_meter_reading: ['',Validators.compose([Validators.required])]
-      });
-    }
+      this.cp.storageGet('vehicle_id')
+      .then(r=>{
+        this.vehicle_id = r
+        if(this.vehicle_id == '8'){
+          console.log(this.vehicle_id)
+          this.dataFilling = this.formBuilder.group({
+            meter_reading: ['',Validators.compose([ Validators.required, Validators.max(999999999), Validators.pattern('^(0|[1-9][0-9]*)$')])], ///^(0|[1-9][0-9]*)$/
+            kilometer: ['',Validators.compose([ Validators.required,  Validators.pattern('^(0|[1-9][0-9]*)$')])],
+            hour_meter_reading: ['',Validators.compose([Validators.required])]
+          });
+        }
+        else{
+          this.dataFilling = this.formBuilder.group({
+            meter_reading: ['',Validators.compose([ Validators.required, Validators.max(999999999), Validators.pattern('^(0|[1-9][0-9]*)$')])], ///^(0|[1-9][0-9]*)$/
+            kilometer: ['',Validators.compose([ Validators.required,  Validators.pattern('^(0|[1-9][0-9]*)$')])],
+            // hour_meter_reading: ['',Validators.compose([Validators.required])]
+          });
+        }
+      })
     this.loggedOut = navParams.get('logout'); 
 
   }
 
   async ionViewDidLoad() {
-    this.vehicle_id = await this.cp.storageGet('vehicle_id')
     this.getPreviousReading()
 
   }
@@ -80,6 +84,7 @@ export class MeterReadingPage {
     data['meter_reading'] = this.dataFilling.value.meter_reading
     data['hour_meter_reading'] = this.dataFilling.value.hour_meter_reading
     data['vehicle_id']  = this.vehicle_id
+    console.log(data)
     if(!this.loggedOut){
       let save = this.mdlCtrl.create(MessageActionModalComponent, {msg : MessageConfig.meterReadingConfirmation(this.last_meter_reading, data['meter_reading'])})
       save.present()

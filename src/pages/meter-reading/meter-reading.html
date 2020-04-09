@@ -3,7 +3,7 @@
     <img src="{{logo}}" alt="TankUp">
   </div>
   <ion-card align="center" class="card">
-    <form [formGroup]="dataFilling" (ngSubmit)="send()">
+    <form [formGroup]="dataFilling" (ngSubmit)="send()" *ngIf='dataFilling'>
       <ion-row>
         <ion-col>
           <ion-input type="number" formControlName="kilometer" id='test' placeholder='Enter Odometer Reading'></ion-input>

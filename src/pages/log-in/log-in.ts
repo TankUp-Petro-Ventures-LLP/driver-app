@@ -7,8 +7,8 @@ import { ComponentsProvider } from '../../providers/components/components';
 import { Config, eAuthType } from '../../configuration/config';
 import { HomePage } from '../home/home';
 import { MeterReadingPage } from '../meter-reading/meter-reading';
-import { Uid } from '@ionic-native/uid/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
+import { Uid } from '@ionic-native/uid';
 
 @IonicPage()
 @Component({
@@ -66,24 +66,24 @@ export class LogInPage {
     }
   } 
 
-  async getImei() {
-    const { hasPermission } = await this.androidPermissions.checkPermission(
-      this.androidPermissions.PERMISSION.READ_PHONE_STATE
-    );
+  // async getImei() {
+  //   const { hasPermission } = await this.androidPermissions.checkPermission(
+  //     this.androidPermissions.PERMISSION.READ_PHONE_STATE
+  //   );
    
-    if (!hasPermission) {
-      const result = await this.androidPermissions.requestPermission(
-        this.androidPermissions.PERMISSION.READ_PHONE_STATE
-      );
+  //   if (!hasPermission) {
+  //     const result = await this.androidPermissions.requestPermission(
+  //       this.androidPermissions.PERMISSION.READ_PHONE_STATE
+  //     );
    
-      if (!result.hasPermission) {
-        throw new Error('Permissions required');
-      }
+  //     if (!result.hasPermission) {
+  //       throw new Error('Permissions required');
+  //     }
    
-      // ok, a user gave us permission, we can get him identifiers after restart app
-      return;
-    }
+  //     // ok, a user gave us permission, we can get him identifiers after restart app
+  //     return;
+  //   }
    
-     return this.uid.IMEI
-   }
+  //    return this.uid.IMEI
+  //  }
 }
