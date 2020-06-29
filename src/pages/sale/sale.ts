@@ -7,6 +7,11 @@ import { Config } from '../../configuration/config';
 import { ChangeQuantityComponent } from '../../components/change-quantity/change-quantity';
 import { ComponentsProvider } from '../../providers/components/components';
 import { VerifyFillingPage} from '../verify-filling/verify-filling'
+import { BackgroundMode } from '@ionic-native/background-mode';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { MessageConfig } from '../../app/message.config';
+import { MessageActionModalComponent } from '../../components/message-action-modal/message-action-modal';
+import { eTankUpOperation } from '../../factory/operations.factory';
 
 @IonicPage()
 @Component({
@@ -20,8 +25,11 @@ export class SalePage {
   public total_changed_quantity
   public total_filled_quantity
   public edit = false
+  public image : any
+  public obj ={}
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private mdlCtrl : ModalController,
-    public apiTalk:ApiTalkProvider,public cp:ComponentsProvider) {
+    public apiTalk:ApiTalkProvider,public cp:ComponentsProvider,private camera: Camera,  private backgroundMode: BackgroundMode) {
       this.supplyDetails = navParams.get('supplyData'); 
   }
 
@@ -51,8 +59,46 @@ export class SalePage {
 
   saveData(data){
     return this.apiTalk.postData(Config.API_URL +'/customer-tank',data)
-    .then(res =>{
+    .then(async res =>{
+      await this.openCamera(data)
       this.ionViewDidLoad()
+    })
+  }
+
+  openCamera(data){
+    this.backgroundMode.enable();
+    const options: CameraOptions = {
+      quality: 60,
+      targetHeight:1280,
+      targetWidth:1280,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      // saveToPhotoAlbum: true
+    }
+
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64 (DATA_URL):
+     this.image = 'data:image/jpg;base64,' + imageData;
+     this.uploadImage(data)
+    }, (err) => {
+    });
+    this.backgroundMode.disable();
+
+  }
+
+  uploadImage(data){
+    this.obj = {}
+    this.obj['customer_id'] = data.customer_id
+    this.obj['image'] = this.image
+    this.obj['order_id'] = data.order_id
+    this.obj['order_supply_id'] = data.order_supply_id
+    this.obj['quantity'] = data.quantity
+    console.log(this.obj)
+    return this.apiTalk.postData(Config.API_URL+ '/driver-app/order-slips?type='+eTankUpOperation.supply, this.obj)
+    .then(async result => {
+      this.cp.presentAlert(result['json'].msg)
     })
   }
 
