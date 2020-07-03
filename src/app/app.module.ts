@@ -43,6 +43,7 @@ import { OrderSummaryPageModule } from '../pages/order-summary/order-summary.mod
 import { VerifyFillingPageModule } from '../pages/verify-filling/verify-filling.module';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { OtpPageModule } from '../pages/otp/otp.module';
+import { UploadImagePageModule } from '../pages/upload-image/upload-image.module';
 
 
 var firebase = {
@@ -77,7 +78,7 @@ var firebase = {
     OrderPageModule, SalePageModule,PaymentPageModule,LogInPageModule,
     SetVehiclePageModule,
     MeterReadingPageModule,VendorFillingPageModule,NothingFoundPageModule,
-    HardZeroPageModule,Home2PageModule,OrderSummaryPageModule,VerifyFillingPageModule,OtpPageModule
+    HardZeroPageModule,Home2PageModule,OrderSummaryPageModule,VerifyFillingPageModule,OtpPageModule,UploadImagePageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

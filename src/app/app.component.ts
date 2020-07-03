@@ -12,6 +12,7 @@ import { OnAppLoad } from '../classes/on.app.load';
 import { HardZeroPage } from '../pages/hard-zero/hard-zero';
 import { OrderSummaryPage } from '../pages/order-summary/order-summary';
 import { OtpPage } from '../pages/otp/otp';
+import { UploadImagePage } from '../pages/upload-image/upload-image';
 
 
 @Component({
@@ -20,7 +21,7 @@ import { OtpPage } from '../pages/otp/otp';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any ;
+  rootPage: any  ;
 
   pages: Array<{title: string, component: any}>;
 

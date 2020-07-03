@@ -13,6 +13,7 @@ import { Home2Page } from '../home2/home2';
 import { OrderSummaryPage } from '../order-summary/order-summary';
 import { OtpPage } from '../otp/otp';
 import { eTankUpOperation } from '../../factory/operations.factory';
+import { UploadImagePage } from '../upload-image/upload-image';
 
 
 @IonicPage()
@@ -77,7 +78,8 @@ public approved_by
           await  this.completeSupply()
           await this.generateOtp()
           this.cp.dismisLoading()
-          this.navCtrl.setRoot(OtpPage,{data:this.data,paymentData:this.data,showAmount:false})
+          // this.navCtrl.setRoot(OtpPage,{data:this.data,paymentData:this.data,showAmount:false})
+          this.navCtrl.push(UploadImagePage,{data:this.data,paymentData:this.data,showAmount:false})
         }
       })
     }
@@ -148,7 +150,8 @@ public approved_by
     return this.apiTalk.postData(Config.API_URL + '/payment?order_id='+this.data.order_id,obj)
     .then(result =>{
       this.cp.dismisLoading()
-      this.navCtrl.setRoot(OtpPage,{data:this.data,paymentData:this.data,showAmount:true,obj:obj})
+      // this.navCtrl.setRoot(OtpPage,{data:this.data,paymentData:this.data,showAmount:true,obj:obj})
+      this.navCtrl.push(UploadImagePage,{data:this.data,paymentData:this.data,showAmount:true,obj:obj})
       // this.navCtrl.setRoot(OrderSummaryPage,{supplyData:this.data,paymentData:this.paymentData,obj:obj,showAmount:true})
     })
   }
