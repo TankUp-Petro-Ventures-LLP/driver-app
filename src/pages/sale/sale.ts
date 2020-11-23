@@ -60,7 +60,7 @@ export class SalePage {
   saveData(data){
     return this.apiTalk.postData(Config.API_URL +'/customer-tank',data)
     .then(async res =>{
-      await this.openCamera(data)
+      // await this.openCamera(data)
       this.ionViewDidLoad()
     })
   }
