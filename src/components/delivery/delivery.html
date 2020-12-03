@@ -19,6 +19,22 @@
         {{supplyData?.address}}
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col col-4 id='address'>
+        Quantity:
+      </ion-col>
+      <ion-col col-8 id='icon'>
+        {{supplyData?.quantity || 0}} ltrs
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4 id='address'>
+        Rate:
+      </ion-col>
+      <ion-col col-8 id='icon'>
+        {{supplyData?.rate | currency :'INR' :true}}
+      </ion-col>
+    </ion-row>
   </ion-card-content>
 </ion-card>
 <ion-card>

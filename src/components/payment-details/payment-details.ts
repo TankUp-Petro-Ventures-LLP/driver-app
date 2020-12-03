@@ -17,6 +17,11 @@ export class PaymentDetailsComponent {
   constructor() {
     console.log('Hello PaymentDetailsComponent Component');
     this.text = 'Hello World';
+    let timeout= setTimeout( () => {
+      console.log(this.paymentData)
+ }, 1000 );
+   
   }
+
 
 }
