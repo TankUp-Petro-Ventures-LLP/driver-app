@@ -8,7 +8,6 @@ import { Config, eAuthType } from '../../configuration/config';
 import { HomePage } from '../home/home';
 import { MeterReadingPage } from '../meter-reading/meter-reading';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
-import { Uid } from '@ionic-native/uid';
 
 @IonicPage()
 @Component({
@@ -23,7 +22,7 @@ export class LogInPage {
   public nu = false
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private apiTalk:ApiTalkProvider,private formBuilder :FormBuilder,
-    private cp :ComponentsProvider,private menuCtrl: MenuController,private uid: Uid, private androidPermissions: AndroidPermissions,
+    private cp :ComponentsProvider,private menuCtrl: MenuController, private androidPermissions: AndroidPermissions,
     private modalCtrl : ModalController) {
     this.user = this.formBuilder.group({
       username: ['', Validators.required],
