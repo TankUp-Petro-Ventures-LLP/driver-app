@@ -21,8 +21,6 @@ import { IonicStorageModule } from '@ionic/storage';
 import { SetVehiclePageModule } from '../pages/set-vehicle/set-vehicle.module';
 import { MeterReadingPageModule } from '../pages/meter-reading/meter-reading.module';
 
-import { Uid } from '@ionic-native/uid';
-
 import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { VendorFillingPageModule } from '../pages/vendor-filling/vendor-filling.module';
 import { Geolocation } from '@ionic-native/geolocation';
@@ -92,7 +90,6 @@ var firebase = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiTalkProvider,
     ComponentsProvider,
-    Uid,
     AndroidPermissions,
     Keyboard,
     Geolocation,

@@ -31,11 +31,12 @@ public approved_by
   constructor(public navCtrl: NavController, public navParams: NavParams, private mdlCtrl : ModalController,public apiTalk:ApiTalkProvider,
     public cp:ComponentsProvider) {
     this.data = navParams.get('supplyDetails'); 
-    console.log(this.data)
+    // console.log(this.data)
   }
 
   ionViewDidLoad() {
     this.getPaymentDetails()
+    //  console.log(this.paymentData)
   }
 
   doRefresh(refresher) { 
