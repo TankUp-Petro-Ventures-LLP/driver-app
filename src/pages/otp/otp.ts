@@ -30,6 +30,9 @@ export class OtpPage {
   public filling_id
   public vendor_id
   public showSummary
+  public supplyData
+  public number
+  public vehicle_id
   constructor(public navCtrl: NavController, public navParams: NavParams,private formBuilder :FormBuilder,public apiTalk:ApiTalkProvider,
     public cp:ComponentsProvider,public mdlCtrl:ModalController) {
     this.user = this.formBuilder.group({
@@ -43,8 +46,20 @@ export class OtpPage {
     this.showSummary = navParams.get('showSummary'); 
   }
 
-  ionViewDidLoad() {
+  async ionViewDidLoad() {
     console.log('ionViewDidLoad OtpPage');
+    this.vehicle_id = await this.cp.storageGet('vehicle_id')
+   let detail= await this.fetchData();
+    if(detail['json'].contact_person_number){
+      this.number = detail['json'].contact_person_number;
+    }
+    else{
+      this.number = detail['json'].customer_number;
+    }
+  }
+  async fetchData(){
+    let res = await this.apiTalk.getData(Config.API_URL + Config.driver + '/operation?vehicle_id='+this.vehicle_id)
+    return res
   }
   verifyOtp(){
     if(!this.filling_id){
