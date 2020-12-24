@@ -1,23 +1,23 @@
 <ion-header no-border>
-  <ion-navbar color='primary'>
+  <ion-navbar transparent>
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title align="center">Verify Filling</ion-title>
+    <ion-title>Verify Filling</ion-title>
     <ion-buttons end>
     </ion-buttons>
   </ion-navbar>
-  <ion-card id='card'>
-    <ion-card-header>
+  <ion-card class="card1">
+    <div class="cardtext">
       <ion-row>
-        <ion-col col-8 col-sm-8 col-md-8 id='label'> Total Filled Quantity</ion-col>
-        <ion-col col-4 col-sm-4 col-md-4>{{total_filled_quantity | number : '1.2-2'}}Ltrs</ion-col>
+        <ion-col col-7 col-sm-7 col-md-7 id='label'><b> Total Filled Quantity</b></ion-col>
+        <ion-col col-5 col-sm-5 col-md-5 id="label">{{total_filled_quantity | number : '1.2-2'}}Ltrs</ion-col>
       </ion-row>
       <ion-row *ngIf='total_changed_quantity'>
-        <ion-col col-8 col-sm-8 col-md-8 id='label'>Changed Quantity</ion-col>
-        <ion-col col-4 col-sm-4 col-md-4>{{total_changed_quantity | number : '1.2-2'}}Ltrs</ion-col>
+        <ion-col col-7 col-sm-7 col-md-7 id='label'><b>Changed Quantity</b></ion-col>
+        <ion-col col-5 col-sm-5 col-md-5 id="label">{{total_changed_quantity | number : '1.2-2'}}Ltrs</ion-col>
       </ion-row>
-    </ion-card-header>
+   </div>
   </ion-card>
 </ion-header>
 
@@ -30,10 +30,11 @@
       refreshingText="">
     </ion-refresher-content>
   </ion-refresher>
+  
   <dispensed [supplyData]='supplyData' (result)="getData()" [edit]='edit'></dispensed>
 </ion-content>
 <ion-footer>
-  <button ion-button color="primary" block (tap)="payment()">Payment
+  <button ion-button color="dark" block (tap)="payment()">Payment
     <ion-icon ios="ios-arrow-dropright" md="md-arrow-dropright" id='arrow'></ion-icon>
   </button>
 </ion-footer>

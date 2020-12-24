@@ -1,24 +1,40 @@
 page-set-vehicle {
-  ion-content {
-    background: linear-gradient(color($colors, primary), color($colors, gradient2));
-  }
+  ion-content{
+
+    background: linear-gradient(to bottom,color($colors, light)280px,color($colors,primary)0%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: "montserrat" !important ;
+    font-weight: 400 !important;
+
+    background-attachment: fixed;
+    position: fixed;
+} 
 
   .logo {
-    width: 150px;
+    width: 150px;   
     margin: 0 auto;
     position: relative;
-    top: 5em;
-  }
+    top : 110px;
+}
 
   .card {
     position: relative;
-    top: 7em;
+    top: 11em;
+    border-radius: 6px;
     background-color: white;
     padding: 1em;
   }
 
   .dropdown{
-    max-width: 100% !important;
+    height: 50px;
+        padding: 8px;
+        margin-bottom:-5px;
+        margin-top: 5%;
+        margin-left: 2.5%;
+        width: 95%;
+        border-radius: 4px;
+        background-color: rgb(248, 248, 248);;
    }
 
 }

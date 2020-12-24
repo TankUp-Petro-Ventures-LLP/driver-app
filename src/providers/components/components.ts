@@ -27,7 +27,7 @@ export class ComponentsProvider {
     return this.storage.remove(key)
   }
 
-  presentLoadingText(text : string = 'Loading Please Wait...') {
+  presentLoadingText(text : string = "लोड हो रहा है कृपया प्रतीक्षा करें...") {
     this.loading = this.loadingCtrl.create({
       spinner: 'circles',
       content: text

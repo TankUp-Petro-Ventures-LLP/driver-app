@@ -1,4 +1,8 @@
 payment-details {
+  .card{
+    border-radius: 6px;
+    background: linear-gradient(to bottom,color($colors, light)280px,color($colors,light)0%) !important;
+  }
     table {
         width: 100%;
       }

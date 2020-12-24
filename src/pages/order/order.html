@@ -1,15 +1,15 @@
 <ion-header no-border>
-  <ion-navbar color='primary'>
+  <ion-navbar transparent>
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title align="center">Order</ion-title>
+    <ion-title>Order</ion-title>
     <ion-buttons end>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="container" id="blur">
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content>
       pullingIcon="arrow-dropdown"
@@ -25,10 +25,34 @@
     </button>
   </ion-fab>
   <delivery [supplyData]='supplyData'></delivery>
-</ion-content>
+  <br><br>
+ 
 
-<ion-footer>
-  <button ion-button color="primary" block (tap)="startDelivery()">Start Delivery
+
+<ion-footer no-border class="container" id="blur">
+  <ion-row style="margin-top: -3%;">
+    <ion-col>
+      <div align="center">
+      <img src="../../assets/imgs/call.png" alt="Snow" class="icons" (tap)="callTankUp()">
+      <p align="center" class="text">TankUp</p>
+    </div>
+    </ion-col>
+    <ion-col>
+      <div align="center">
+      <img src="../../assets/imgs/phone.png" alt="Snow" class="icons" (tap)="call(supplyData.customer_number)">
+      <p align="center" class="text">Customer</p>
+    </div>
+    </ion-col>
+    <ion-col>
+      <div align="center">
+      <img src="../../assets/imgs/mobile.png" alt="Snow" class="icon" (tap)="call(supplyData.contact_person_number)">
+      <p align="center" class="text">Contact Person</p>
+      </div>
+    </ion-col>
+  </ion-row>
+  <button ion-button color="dark" block (tap)="startDelivery()">START DELIVERY
     <ion-icon ios="ios-arrow-dropright" md="md-arrow-dropright" id='arrow'></ion-icon>
   </button>
 </ion-footer>
+
+</ion-content>

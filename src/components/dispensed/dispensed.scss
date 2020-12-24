@@ -1,17 +1,12 @@
 dispensed{
-    table {
-        width: 100%;
-      }
-      
-      th {
-        height: 50px;
-      }
+  .cardtext{
+    margin-left: 7%;
+    margin-top: 6%;
+  }
+  .card2{
+    border-radius: 15px;
+    background:#f4f4f4 !important;
+    height: auto;
+  }
 
-    td{
-        padding: 3px;
-    }
-    #icon{
-      padding: 5px;
-      color: #F76B1C
-    }
 }

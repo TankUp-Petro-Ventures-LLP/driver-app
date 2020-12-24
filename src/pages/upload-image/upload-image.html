@@ -4,8 +4,8 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-    <ion-navbar color='primary'>
+<ion-header no-border>
+    <ion-navbar transparent>
         <button ion-button icon-only menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
@@ -18,23 +18,23 @@
 <ion-content padding>
   <ion-row>
     <ion-col>
-      <button ion-button block (click)="openCamera()">
+      <button class="btn" ion-button color="dark" block (click)="openCamera()">
         <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
         Camera
       </button>
     </ion-col>
     <ion-col>
-      <button ion-button block (click)="openGallery()">
+      <button class="btn" ion-button color="dark" block (click)="openGallery()">
         <ion-icon ios="ios-images" md="md-images"></ion-icon>
         Gallery
       </button>
     </ion-col>
   </ion-row>
 
-  <ion-row>
+  <ion-row *ngFor="let r of imageArray">
     <ion-col>
       <p align='center'>
-        <img src="{{ image }}">
+        <img src="{{ r }}">
       </p>
     </ion-col>
   </ion-row>
@@ -43,6 +43,6 @@
 <ion-footer no-border>
   <ion-toolbar transparent>
     <!-- <button ion-button block (click)="submit()">Send</button> -->
-    <button ion-button block (click)="finish()">Finish</button>
+    <button ion-button color="dark" block (click)="finish()">Finish</button>
   </ion-toolbar>
 </ion-footer>

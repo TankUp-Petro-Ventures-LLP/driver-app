@@ -17,7 +17,7 @@ export class Config{
     static money = 'assets/icon/money-bag.png'
     static pump = 'assets/icon/dispenser.png'
     static cheque = 'assets/icon/cheque.png'
-
+    static tankup_number = 7800008800
     
     static makeCall(number : number){
         let location ='tel:+91'+number+'';

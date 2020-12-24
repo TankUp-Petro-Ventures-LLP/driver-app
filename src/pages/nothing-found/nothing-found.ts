@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { ComponentsProvider } from '../../providers/components/components';
 /**
  * Generated class for the NothingFoundPage page.
  *
@@ -14,13 +14,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'nothing-found.html',
 })
 export class NothingFoundPage {
-public data
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public data
+
+  constructor(public navCtrl: NavController,private cp :ComponentsProvider, public navParams: NavParams, public viewCtrl: ViewController) {
     this.data = navParams.get('data'); 
   }
+  ionViewDidLoad() {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NothingFoundPage');
+  back(){
+
+    this.cp.presentLoadingText()
+    this.viewCtrl.dismiss();
+    this.cp.dismisLoading()
+  
   }
 
 }

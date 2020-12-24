@@ -1,18 +1,9 @@
-<ion-header no-border>
-  <ion-navbar color='primary'>
-    <button ion-button icon-only menuToggle>
-      <!-- <ion-icon name="menu"></ion-icon> -->
-    </button>
-    <ion-title align="center"></ion-title>
-    <ion-buttons end>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
 <ion-content>
   <div class="logo">
     <img src="{{logo}}" alt="TankUp">
   </div>
   <ion-card align="center" class="card">
+    <br>
    <p style="color: black;">OTP has been successfully send to <b>{{number}}</b></p>
    <br>
     <form [formGroup]="user" (ngSubmit)="verifyOtp()">
@@ -23,7 +14,7 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          <button ion-button block [disabled]='!user.valid'>Verify Otp</button>
+          <button ion-button color="dark" block [disabled]='!user.valid'>Verify Otp</button>
         </ion-col>
       </ion-row>
       <!-- <ion-row> -->

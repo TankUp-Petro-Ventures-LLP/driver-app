@@ -9,14 +9,32 @@ payment-not-collected {
     }
 
     .card{
-        padding: 5em;
-        border-radius: 10px;
+        border-radius: 6px;
+        height: auto;
+        width: 90%;
+        margin-left: 5%;
     }
 
     .buttons{
         margin-top: 20px;
+      
     }
-    .dropdown{
-        max-width: 100% !important;
-       }
+    .btn{
+        border-radius: 6px;
+        height: 55px;
+        margin-left: 2%;
+        width: 96%;
+      }
+    .select{
+          
+        background-color:rgb(248, 248, 248); ;
+        margin-bottom:-5px;
+        margin-top: 5%;
+        height: 55px;
+        margin-left: 5%;
+        width: 90%;
+        border-radius: 4px;
+        
+
+    }
 }

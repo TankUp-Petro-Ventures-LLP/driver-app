@@ -1,5 +1,5 @@
 <ion-header no-border>
-  <ion-navbar color='primary'>
+  <ion-navbar transparent>
     <ion-title align="center">Edit Number</ion-title>
     <ion-buttons end>
       <button ion-button (tap)='dismiss()'>
@@ -28,10 +28,10 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <button ion-button color="danger" block (tap)="dismiss()">Close</button>
+          <button ion-button color="dark" block (tap)="dismiss()">Close</button>
         </ion-col>
         <ion-col>
-          <button ion-button color="secondary" block [disabled]="!form.valid" (tap)="save()">Save</button>
+          <button ion-button color="dark" block [disabled]="!form.valid" (tap)="save()">Save</button>
         </ion-col>
       </ion-row>
     </ion-grid>

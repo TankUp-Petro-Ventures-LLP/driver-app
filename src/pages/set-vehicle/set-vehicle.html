@@ -1,11 +1,13 @@
 <ion-content padding>
-  <div class="logo">
-    <img src="{{logo}}" alt="TankUp">
-  </div>
+  <div class="top">
+    <div class="logo">
+        <img src="{{logo}}" alt="TankUp">
+    </div>
+</div>
   <ion-card align="center" class="card">
-    <ion-item>
+    <ion-item class="dropdown">
       <ion-label>Select Vehicle</ion-label>
-      <ion-select [(ngModel)]='data.id' class="dropdown">
+      <ion-select [(ngModel)]='data.id'>
         <ion-option *ngFor='let data of vehicleList; let i = index' [value]='data.id'>{{i+1}} :{{data.number}}
         </ion-option>
       </ion-select>
@@ -14,7 +16,7 @@
     <br>
     <ion-row>
       <ion-col>
-        <button ion-button block (tap)='setVehicle()'>Set Vehicle</button>
+        <button ion-button color="dark" block (tap)='setVehicle()'>Set Vehicle</button>
       </ion-col>
     </ion-row>
   </ion-card>

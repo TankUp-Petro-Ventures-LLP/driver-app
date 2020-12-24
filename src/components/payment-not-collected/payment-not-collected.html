@@ -1,24 +1,30 @@
-<ion-card>
-
-  <form novalidate [formGroup]="form">
-
-    <ion-item>
-      <ion-label>Supervisor Approved</ion-label>
-      <ion-select formControlName="approved_by" class="dropdown" >
-          <ion-option *ngFor="let supervisor of supervisors" [value] = supervisor.id (ionSelect)='selectSupervisor(supervisor)'>{{supervisor.name}}</ion-option>
-      </ion-select>
-    </ion-item>
-
-
-  </form>
-
-  <ion-row class="buttons">
-    <ion-col *ngIf="form.valid">
-      <button ion-button color="primary" block [disabled]="!form.valid" (tap)="save()">Save</button>
-    </ion-col>
-    <ion-col *ngIf="!form.valid">
-      <button ion-button color="danger" block [disabled]="form.valid" (tap)="close()">Close</button>
-    </ion-col>
-  </ion-row>
-
-</ion-card>
+<ion-card class="card">
+  <br>
+  <h2 align="center"><b>Supervisor Approved</b></h2>
+  <br>
+    <form novalidate [formGroup]="form">
+      <ion-item class="select">
+        <ion-label style="font-size: 14px; color: rgb(146, 145, 145);">Select Supervisor</ion-label>
+  
+        <ion-select formControlName="approved_by" class="inp">
+          <ion-option value="{{supervisor.id}}" *ngFor="let supervisor of supervisors " (ionSelect)='selectSupervisor(supervisor)'>
+            <span>
+  
+              {{supervisor.name}}
+            </span>
+          </ion-option>
+        </ion-select>
+  
+      </ion-item>
+    </form>
+   
+    <ion-row class="buttons">
+      <ion-col *ngIf="form.valid">
+        <button ion-button color="secondary" block type="submit" class="btn" [disabled]='!form.valid'  (tap)="save()">Save</button>
+      </ion-col>
+      <ion-col *ngIf="!form.valid">
+        <button ion-button color="danger" block type="submit" class="btn" [disabled]='form.valid'  (tap)="close()">Close</button>
+      </ion-col>
+    </ion-row>
+  <br>
+  </ion-card>

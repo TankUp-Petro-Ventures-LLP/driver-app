@@ -22,10 +22,14 @@ export class MessageActionModalComponent {
   }
 
   accept(){
+    var blur= document.getElementById('blur');
+    blur.classList.toggle('active')
     this.viewCtrl.dismiss(true)
   }
 
   decline(){
+    var blur= document.getElementById('blur');
+    blur.classList.toggle('active')
     this.viewCtrl.dismiss(false)
   }
 
