@@ -17,8 +17,6 @@ export class MessageActionModalComponent {
     //   message: "OTP has been sent to your Registered Mobile Number",
     //   button: {accept : 'ok', decline : 'Cancel'}
     // }
-
-
   }
 
   accept(){

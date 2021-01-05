@@ -4,7 +4,7 @@
   </div>
   <ion-card align="center" class="card">
     <br>
-   <p style="color: black;">OTP has been successfully send to <b>{{number}}</b></p>
+   <p *ngIf='number' style="color: black;">OTP has been successfully send to <b>{{number}}</b></p>
    <br>
     <form [formGroup]="user" (ngSubmit)="verifyOtp()">
       <ion-row>
