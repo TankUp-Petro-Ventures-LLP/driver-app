@@ -1,17 +1,17 @@
 page-otp {
     ion-content{
-        background: linear-gradient(color($colors, primary),color($colors, gradient2));
-    }  
-
-      .logo {
+        background: linear-gradient(to bottom,color($colors, light)250px,color($colors,primary)0%) !important;
+    } 
+    .logo {
         width: 150px;   
         margin: 0 auto;
         position: relative;
-        top : 5em;
+        top : 110px;
     }
     .card{
         position:relative;
-        top: 7em;
+        top: 150px;
+        border-radius: 6px;
         background-color: white;
         padding: 1em;
         }  

@@ -40,8 +40,11 @@ public analyticsData
    }
 
   async getOperation(){
+    // this.cp.presentLoadingText();
     let result =  await this.fetchData()
+    console.log(result)
     this.viewOperations(result['json'])
+    this.cp.dismisLoading();
   }
 
   async fetchData(){

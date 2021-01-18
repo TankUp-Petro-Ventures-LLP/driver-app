@@ -29,6 +29,7 @@ export class UploadImagePage {
   public obj
   public showSummary
   public image
+  public imageArray =[]
   constructor(public navCtrl: NavController, public navParams: NavParams,private camera: Camera,  private backgroundMode: BackgroundMode,public apiTalk:ApiTalkProvider,
     public cp:ComponentsProvider) {
     this.data = navParams.get('data'); 
@@ -61,6 +62,7 @@ export class UploadImagePage {
      // If it's base64 (DATA_URL):
      this.image = 'data:image/jpg;base64,' + imageData;
      this.uploadImage()
+     console.log(this.imageArray)
     }, (err) => {
     });
     this.backgroundMode.disable();
@@ -68,6 +70,7 @@ export class UploadImagePage {
   }
 
   uploadImage(){
+    this.cp.presentLoadingText();
     this.obj = {}
     this.obj['customer_id'] = this.data.customer_id
     this.obj['image'] = this.image
@@ -77,6 +80,8 @@ export class UploadImagePage {
     console.log(this.obj)
     return this.apiTalk.postData(Config.API_URL+ '/driver-app/order-slips?type='+eTankUpOperation.supply, this.obj)
     .then(async result => {
+      this.cp.dismisLoading();
+      this.imageArray.push(this.image)
       this.cp.presentAlert(result['json'].msg)
     })
   }
@@ -95,6 +100,7 @@ export class UploadImagePage {
         this.uploadImage()
       }, (err) => {     
     });  
+    
   }
 
 

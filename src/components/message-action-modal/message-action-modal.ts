@@ -17,15 +17,17 @@ export class MessageActionModalComponent {
     //   message: "OTP has been sent to your Registered Mobile Number",
     //   button: {accept : 'ok', decline : 'Cancel'}
     // }
-
-
   }
 
   accept(){
+    var blur= document.getElementById('blur');
+    blur.classList.toggle('active')
     this.viewCtrl.dismiss(true)
   }
 
   decline(){
+    var blur= document.getElementById('blur');
+    blur.classList.toggle('active')
     this.viewCtrl.dismiss(false)
   }
 

@@ -1,10 +1,10 @@
 export const MessageConfig = {
     startDelivery : {
-        heading : 'Start Delivery',
-        message : 'Delivery Suru karne Par apki location save ho jayegi',
+        heading : 'डिलीवरी शुरू करें?',
+        message : 'डिलीवरी शुरू करने पर आपकी लोकेशन सेव हो जाएगी',
         button: {
-            accept: "Suru Kardo",
-            decline: "Nahi"
+            accept: "शुरू करें",
+            decline: "नहीं"
           }
     }, 
 
@@ -12,10 +12,10 @@ export const MessageConfig = {
     saveDispensing : function(qty, tank_number){
         return {
             heading : 'Save Dispensing',
-            message : `Kya ${qty} ltr ${tank_number} me bhara gya hai?`,
+            message : `क्या ${qty} लीटर ${tank_number} में भरा गया है?`,
             button: {
-                accept: "Haan",
-                decline: "Nahi"
+                accept: "हाँ",
+                decline: "नहीं"
               }
         }
     } ,
@@ -23,21 +23,21 @@ export const MessageConfig = {
     meterReadingConfirmation : function(previous, current){
         return {
             // heading : 'Save Dispensing',
-            message : `Pakka yhi hai kyuki purani ${previous} ltr thi aur tumne abhi itni ${current} ,shi se check krlo?`,
+            message : `पक्का यही है, क्युकी पुराना ${previous} km कम था और तुमने अभी भी ${current} km डाला है,सही से चेक करलो?`,
             button: {
-                accept: "Sahi hai",
-                decline: "Check Karo"
+                accept: "सही है",
+                decline: "फिर से जांचें"
               }
         }
     } ,
 
 
     askPaymentModal : {
-            heading : 'Payment Mila',
-            message : `Kya apko customer se payment mili`,
+            heading : 'पेमेंट मिला?',
+            message : `क्या आपको कस्टमर से पेमेंट मिली`,
             button: {
-                accept: "Haan",
-                decline: "Nahi"
+                accept: "हाँ",
+                decline: "नहीं"
               }
         },
 
@@ -59,10 +59,10 @@ export const MessageConfig = {
     }, 
     sendHardZero : {
         // heading : 'Start Delivery',
-        message : 'Kya sahi m gaadi zero hui hai?',
+        message : 'क्या सही म गाडी जीरो हुई है?',
         button: {
-            accept: "Haan",
-            decline: "Nahi"
+            accept: "हाँ",
+            decline: "नहीं"
           }
     }, 
 }

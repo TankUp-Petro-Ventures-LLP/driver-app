@@ -1,4 +1,4 @@
-<ion-item *ngIf='method'>
+<ion-item class="payment" *ngIf='method' >
   <ion-label>Payment Method</ion-label>
   <ion-select [(ngModel)]='method' >
       <ion-option *ngFor="let method of payment_methods" (ionSelect)='emitData(method)' [value]='method' >{{method.name}}</ion-option>

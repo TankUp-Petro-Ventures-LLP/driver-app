@@ -1,14 +1,14 @@
 <ion-header no-border>
-  <ion-navbar color='primary'>
+  <ion-navbar transparent>
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title align="center">Vendor Filling</ion-title>
+    <ion-title>Vendor Filling</ion-title>
     <ion-buttons end>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content class="container" id="blur">
   <ion-card>
     <ion-card-content>
       <ion-row>
@@ -42,11 +42,36 @@
       </ion-fab>
     </ion-card-content>
   </ion-card>
+  <div class="content1">
+    <ion-list>
+      <form [formGroup]="formFilling" >
+      <!-- <ion-item class="items"> -->
+        <ion-label class="label" floating > Enter Quantity</ion-label>
+          <ion-input type="number" formControlName='quantity' class="inpt" ></ion-input>
+      <!-- </ion-item> -->
+  
+      <!-- <ion-item class="items"> -->
+        <ion-label class="label" floating> Enter Rate</ion-label>
+        <ion-input type="number" formControlName='rate' class="inpt"  ></ion-input>
+      <!-- </ion-item> -->
+    
+     
+      <!-- <ion-item class="items"> -->
+        <ion-label class="label" floating > Enter Comment</ion-label>
+        <ion-input type="textarea" formControlName='comment' class="inpt" ></ion-input>
+      <!-- </ion-item> -->
 
-  <ion-card id='card'>
+    <!-- <ion-item class="items"> -->
+      <ion-label class="label" floating > Enter Voucher No.</ion-label>
+      <ion-input type="text" formControlName='voucher_no' class="inpt" ></ion-input>
+    <!-- </ion-item> -->
+  </form>
+    </ion-list>
+  </div>
+  <!-- <ion-card id='card'>
     <form [formGroup]="formFilling" >
       <ion-row>
-        <ion-input type="number" formControlName='quantity' id='test' placeholder='Enter Quantity'></ion-input>
+        <ion-input type="number" formControlName='quantity' class="inpt" placeholder='Enter Quantity' ></ion-input>
       </ion-row>
       <ion-row>
           <ion-input type="number" formControlName='rate' id='test' placeholder='Enter Rate'></ion-input>
@@ -59,9 +84,9 @@
       </ion-row>
     </form>
 
-  </ion-card>
+  </ion-card> -->
 </ion-content>
 <ion-footer>
-  <button ion-button block [disabled]='!formFilling.valid' id='test' (tap)="complete()">Complete</button>
+  <button ion-button block color="dark" [disabled]='!formFilling.valid' id='test' (tap)="complete()">Complete</button>
 
 </ion-footer>

@@ -1,31 +1,21 @@
-<ion-content padding>
+<ion-content padding class="container" id="blur">
   <div class="logo">
     <img src="{{logo}}" alt="TankUp">
   </div>
   <ion-card align="center" class="card">
     <form [formGroup]="dataFilling" (ngSubmit)="send()" *ngIf='dataFilling'>
-      <ion-row>
-        <ion-col>
-          <ion-input type="number" formControlName="kilometer" id='test' placeholder='Enter Odometer Reading'></ion-input>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-input type="number" formControlName="meter_reading" id='test' placeholder='Enter Dispenser Meter Reading'></ion-input>
-        </ion-col>
-      </ion-row>
-      <ion-row *ngIf="vehicle_id == '8'">
-        <ion-col>
-          <ion-input type="number" formControlName="hour_meter_reading" id='test' placeholder='Enter Hour Meter Reading'></ion-input>
-        </ion-col>
-      </ion-row>
-      <br><br>
 
-      <ion-row>
-        <ion-col>
-          <button ion-button full color="primary" type="submit" [disabled]="!dataFilling.valid">Send</button>
-        </ion-col>
-      </ion-row>
+          <ion-input type="number" formControlName="kilometer" class="inpt" placeholder='Enter Odometer Reading'></ion-input>
+
+          <ion-input type="number" formControlName="meter_reading" class="inpt" placeholder='Enter Dispenser Meter Reading'></ion-input>
+   
+      <div *ngIf="vehicle_id == '8'">
+    
+          <ion-input type="number" formControlName="hour_meter_reading" class="inpt" placeholder='Enter Hour Meter Reading'></ion-input>
+      </div>
+        <br>
+          <button ion-button color="dark" full class="btn" type="submit" [disabled]="!dataFilling.valid">Send</button>
+       
     </form>
 
   </ion-card>

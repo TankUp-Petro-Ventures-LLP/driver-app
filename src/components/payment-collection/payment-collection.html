@@ -1,25 +1,18 @@
-<ion-card>
-
-    <form novalidate [formGroup]="form">
-      <ion-list>
-
-        <ion-item>
-          <ion-label floating>Amount Collected</ion-label>
-          <ion-input  type="number"  formControlName="amount" ></ion-input>
-        </ion-item>
-    
-      </ion-list>
-        
-    </form>
-        
-
-    <ion-row class="buttons">
-      <ion-col *ngIf="form.valid">
-        <button ion-button color="primary" block [disabled]="!form.valid" (tap)="saveAmount()">Save</button>
-      </ion-col>
-      <ion-col *ngIf="!form.valid">
-        <button ion-button color="danger" block [disabled]="form.valid" (tap)="close()">Close</button>
-      </ion-col>
-    </ion-row>
-
-  </ion-card>
+<ion-card class="card">
+  <br>
+  <h2 align="center"><b>Amount Collected</b></h2>
+  <br>
+      <form novalidate [formGroup]="form">
+            <ion-input class="inpt" type="number" formControlName="amount" placeholder="Enter Amount"></ion-input>
+      </form>
+      
+      <ion-row class="buttons">
+        <ion-col *ngIf="form.valid">
+          <button ion-button color="secondary" block type="submit" class="btn" [disabled]='!form.valid'  (tap)="saveAmount()">Save</button>
+        </ion-col>
+        <ion-col *ngIf="!form.valid">
+          <button ion-button color="danger" block type="submit" class="btn" [disabled]='form.valid'  (tap)="close()">Close</button>
+        </ion-col>
+      </ion-row>
+  <br>
+    </ion-card>

@@ -1,6 +1,47 @@
 page-order {
+  ion-title{
+    margin-left: 27%;
+  }
+  ion-content{
+    background: linear-gradient(to bottom,color($colors, light)280px,color($colors,light)0%) !important;
+} 
+.container#blur.active{
+  // filter: blur(5px);
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+}
+.innercard{
+  height:auto;
+  box-shadow: 0;
+  width: 97%;
+  background: linear-gradient(to bottom,color($colors, light)280px,color($colors,light)0%) !important;
+}
+
+.cardtext
+{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  height: auto;  
+}
     #arrow{
         position: absolute;
         right: 20px;
       }
+      .text{
+        line-height: 0;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .icons{
+        width: 70px;
+      }
+      .icon{
+        margin-top: 5px;
+        width: 60px;
+        margin-bottom: 5px;
+      }
+     
 }

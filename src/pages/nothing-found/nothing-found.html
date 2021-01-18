@@ -1,16 +1,21 @@
 <ion-header no-border>
-  <ion-navbar color='primary'>
+  <ion-navbar transparent>
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title align="center"></ion-title>
-    <ion-buttons end>
-    </ion-buttons>
+    <ion-title align="center">Order</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content>
   <div align='center'>
-      <ion-icon ios="ios-sad" md="md-sad" id='sad'></ion-icon>
-    <p>{{data.msg}}</p>
+    <img src="../../assets/imgs/sadDog.png" id="sad">
+    <!-- <p>{{data.msg}}</p> -->
+  </div>
+  <div class="text" align='center'>
+    <h5><b>No order yet.</b></h5>
+    <p>this section will contain the status<br> of your order.</p>
+    <button ion-button block round primary color="dark" (tap)="back()" class="btn">
+      <b>Go back to home</b>
+    </button>
   </div>
 </ion-content>
