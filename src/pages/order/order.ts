@@ -41,8 +41,8 @@ export class OrderPage {
     permission.present()
 
     permission.onDidDismiss(async data => {
-      this.cp.presentLoadingText();
       if(data){
+        this.cp.presentLoadingText();
         await this.startTime()
         await this.saveLocationOfCustomer()
         this.navCtrl.push(SalePage,{supplyData:this.supplyData})

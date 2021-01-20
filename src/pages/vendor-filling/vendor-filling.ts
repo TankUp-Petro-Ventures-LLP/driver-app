@@ -36,6 +36,7 @@ public obj ={}
   }
 
   ionViewDidLoad() {
+    console.log(this.filling)
     if(this.filling){
       this.formFilling.setValue({quantity:this.filling.quantity,rate:this.filling.rate,comment:this.filling.comment,voucher_no:this.filling.voucher_no})
     }
@@ -51,7 +52,6 @@ public obj ={}
         this.cp.presentLoadingText()
         let user = await this.cp.storageGet('user')
         this.formFilling.value['driver_id']= user.id
-  
         return this.apiTalk.putData(Config.API_URL+'/vehicle-purchase?id='+this.filling.id,this.formFilling.value)
         .then(async result =>{
           await this.generateOtp()
