@@ -39,10 +39,9 @@ export class OrderPage {
     blur.classList.toggle('active')
     let permission = this.mdlCtrl.create(MessageActionModalComponent, {msg : MessageConfig.startDelivery})
     permission.present()
-
     permission.onDidDismiss(async data => {
-      this.cp.presentLoadingText();
       if(data){
+        this.cp.presentLoadingText();
         await this.startTime()
         await this.saveLocationOfCustomer()
         this.navCtrl.push(SalePage,{supplyData:this.supplyData})
