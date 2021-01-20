@@ -47,14 +47,18 @@ export class OtpPage {
   }
 
   async ionViewDidLoad() {
-    console.log('ionViewDidLoad OtpPage');
     this.vehicle_id = await this.cp.storageGet('vehicle_id')
    let detail= await this.fetchData();
-    if(detail['json'].contact_person_number){
-      this.number = detail['json'].contact_person_number;
+   console.log(detail['json'])
+
+    if(detail['json'].contact_number){
+      this.number = detail['json'].contact_number;
+    }
+    if(this.data.contact_person_number){
+      this.number = this.data.contact_person_number;
     }
     else{
-      this.number = detail['json'].customer_number;
+      this.number=this.data.customer_number
     }
   }
   async fetchData(){
