@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiTalkProvider } from '../../providers/api-talk/api-talk';
 import { Config } from '../../configuration/config';
 import { PaymentPage } from '../payment/payment';
+import { createPipeInstance } from '@angular/core/src/view/provider';
+import { ComponentsProvider } from '../../providers/components/components';
 
 /**
  * Generated class for the VerifyFillingPage page.
@@ -22,7 +24,7 @@ public supplyData
 public total_changed_quantity
 public total_filled_quantity
 public edit =true
-  constructor(public navCtrl: NavController, public navParams: NavParams,public apiTalk:ApiTalkProvider) {
+  constructor(public navCtrl: NavController,public cp:ComponentsProvider, public navParams: NavParams,public apiTalk:ApiTalkProvider) {
     this.supplyDetails = navParams.get('supplyDetails');
   }
 
@@ -46,6 +48,8 @@ public edit =true
     })
   }
   payment(){
+    this.cp.presentLoadingText()
     this.navCtrl.push(PaymentPage,{supplyDetails:this.supplyDetails}) //,supplyData:this.supplyData
+    this.cp.dismisLoading();
   }
 }

@@ -62,6 +62,8 @@ export class MeterReadingPage {
 
 
   async send(){
+    var blur= document.getElementById('blur');
+    blur.classList.toggle('active')
     await this.sendMeterReading()
     if(this.loggedOut){
       this.logout()

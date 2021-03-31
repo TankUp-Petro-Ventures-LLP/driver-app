@@ -46,6 +46,8 @@ public approved_by
     }, 1000);
   }
   async completePayment(){
+    var blur= document.getElementById('blur');
+    blur.classList.toggle('active')
     let isCollectionPayment = true
     if(isCollectionPayment){
       this.collectPayment()

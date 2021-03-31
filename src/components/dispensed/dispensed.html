@@ -1,4 +1,36 @@
-<ion-card *ngFor="let data of supplyData">
+<ion-card class="card2" *ngFor="let data of supplyData">
+  <div class="cardtext">
+    <ion-row style="margin-top: -5%;"> 
+      <ion-col col-5>
+    <p style="font-size: 16px; color: black;"><ion-icon ios="ios-construct" md="md-construct"></ion-icon>&nbsp;<b> {{data.tank_name | uppercase}}</b></p>
+      </ion-col>
+      <ion-col col-3 align='right' *ngIf='editButton'>
+        <a (tap)='edit(data)'>Edit<ion-icon ios="ios-create" md="md-create" id='icon'></ion-icon></a>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+    <ion-col col-4>
+      <p style="font-size: 16px; color: black;"><b>{{data.show_quantity}}Ltrs</b></p>
+      <p style="font-size: 14px; color:black;">QUANTITY</p>
+    </ion-col>
+    <ion-col col-2>
+      &nbsp;
+    </ion-col>
+    <ion-col col-6>
+      <p style="font-size: 16px; color: black;"><b>{{data.tank_reading}}</b></p>
+      <p style="font-size: 14px; color: black">METER READING</p>
+    </ion-col>
+  </ion-row>
+  </div>
+</ion-card>
+
+
+
+
+
+
+
+<!-- <ion-card class="card" *ngFor="let data of supplyData">
   <ion-card-content>
     <ion-row>
       <ion-col col-6>
@@ -14,7 +46,6 @@
         <b>{{data.show_quantity}}Ltrs</b>
       </ion-col>
       <ion-col col-3 align='right' *ngIf='editButton'>
-        <!-- <b>{{data.metadata}}</b> -->
         <a (tap)='edit(data)'>Edit<ion-icon ios="ios-create" md="md-create" id='icon'></ion-icon></a>
       </ion-col>
     </ion-row>
@@ -25,13 +56,6 @@
       <ion-col col-6>
         <b>{{data.tank_reading}}</b>
       </ion-col>
-      <!-- <ion-col col-3>
-        Comment:
-      </ion-col> -->
-      <!-- <ion-col col align='right' *ngIf='editButton'>
-        <a (tap)='edit(data)'>Edit<ion-icon ios="ios-create" md="md-create" id='icon'></ion-icon></a>
-      </ion-col> -->
     </ion-row>
   </ion-card-content>
-
-</ion-card>
+</ion-card> -->

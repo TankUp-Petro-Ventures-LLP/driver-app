@@ -35,14 +35,17 @@ export class OrderPage {
   }
 
   startDelivery(){
+    var blur= document.getElementById('blur');
+    blur.classList.toggle('active')
     let permission = this.mdlCtrl.create(MessageActionModalComponent, {msg : MessageConfig.startDelivery})
     permission.present()
-
     permission.onDidDismiss(async data => {
       if(data){
+        this.cp.presentLoadingText();
         await this.startTime()
         await this.saveLocationOfCustomer()
         this.navCtrl.push(SalePage,{supplyData:this.supplyData})
+        this.cp.dismisLoading()
       }
     })
   }
@@ -75,6 +78,11 @@ export class OrderPage {
       window.open('geo:0,0?q=' + destination + '(' + label + ')', '_system');
     }
   }
-
+  call(number){
+    Config.makeCall(number);
+  }
+  callTankUp(){
+    Config.makeCall(Config.tankup_number);
+  }
   
 }

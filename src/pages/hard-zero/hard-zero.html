@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-navbar color='primary'>
+<ion-header no-border>
+  <ion-navbar transparent>
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card class="card">
     <ion-fab right>
       <button ion-fab (tap)='openCamera()'>
         <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
@@ -18,7 +18,7 @@
     <form [formGroup]="dataFilling" (ngSubmit)="send()">
       <ion-row>
         <ion-col>
-          <ion-input type="number" formControlName="meter_reading" id='test'
+          <ion-input type="number" formControlName="meter_reading" class="inpt"
             placeholder='Enter Dispenser Meter Reading'>
           </ion-input>
         </ion-col>
@@ -30,10 +30,10 @@
           </p>
         </ion-col>
       </ion-row>
-      <br>
+      
       <ion-row>
         <ion-col>
-          <button ion-button full color="primary" type="submit" [disabled]="!dataFilling.valid">Send</button>
+          <button ion-button class="btn" full color="dark" type="submit" [disabled]="!dataFilling.valid">Send</button>
         </ion-col>
       </ion-row>
     </form>

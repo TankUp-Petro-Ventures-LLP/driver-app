@@ -1,4 +1,4 @@
-<ion-card>
+<ion-card class="card">
   <ion-card-header align='center'>
     <h5><b>Current Order Payment Details</b></h5>
   </ion-card-header>
@@ -33,7 +33,7 @@
   </ion-card-content>
 </ion-card>
 
-<ion-card>
+<ion-card class="card">
   <ion-card-header align='center'>
     <h5><b>Previous Pending Amount</b></h5>
   </ion-card-header>
@@ -47,7 +47,7 @@
   </ion-card-content>
 </ion-card>
 
-<ion-card>
+<ion-card class="card">
   <ion-card-header align='center'>
     <h5><b>Money To Be Collected</b></h5>
   </ion-card-header>
@@ -55,12 +55,12 @@
     <ion-grid>
       <ion-row>
         <ion-col col-6>
-            <a style="font-size:15pt">
+            <a style="font-size:13pt">
               <b>Grand Total:</b>
             </a>
         </ion-col>
         <ion-col col-6>
-          <a>
+          <a style="float: left;">
             {{paymentData?.sum_previous_this_order_amount | currency :'INR' :true}}
           </a>
         </ion-col>

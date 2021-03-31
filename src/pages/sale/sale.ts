@@ -37,7 +37,7 @@ export class SalePage {
     this.getData()
   }
 
-  doRefresh(refresher) { 
+  doRefresh(refresher) {
     this.ionViewDidLoad()
     setTimeout(() => {
       refresher.complete();
@@ -112,12 +112,16 @@ export class SalePage {
   }
 
   payment(){
+    
     if(this.supplyData.length){
+      this.cp.presentLoadingText();
       this.navCtrl.push(VerifyFillingPage,{supplyDetails:this.supplyDetails}) //,supplyData:this.supplyData
+      this.cp.dismisLoading();
     }
     else{
       this.cp.presentAlert('Pehle data bharo tab aage badh paoge')
     }
+    
   }
 
   editQuantity(){

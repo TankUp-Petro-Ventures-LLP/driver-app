@@ -36,23 +36,24 @@ public obj ={}
   }
 
   ionViewDidLoad() {
+    console.log(this.filling)
     if(this.filling){
       this.formFilling.setValue({quantity:this.filling.quantity,rate:this.filling.rate,comment:this.filling.comment,voucher_no:this.filling.voucher_no})
     }
   }
 
-  complete(){
+  async complete(){
+    var blur= document.getElementById('blur');
+    blur.classList.toggle('active')
     let permission = this.mdlCtrl.create(MessageActionModalComponent, {msg : MessageConfig.completeFilling})
     permission.present()
-
     permission.onDidDismiss(async data => {
       if(data){
+        this.cp.presentLoadingText()
         let user = await this.cp.storageGet('user')
         this.formFilling.value['driver_id']= user.id
         return this.apiTalk.putData(Config.API_URL+'/vehicle-purchase?id='+this.filling.id,this.formFilling.value)
         .then(async result =>{
-          await this.openCamera()
-          this.cp.presentLoadingText()
           await this.generateOtp()
           this.cp.dismisLoading()
           this.navCtrl.setRoot(OtpPage,{vendor_id:this.filling.vendor_id,filling_id:this.filling.id})

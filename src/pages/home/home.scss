@@ -1,6 +1,11 @@
 page-home {
-  #logout {
-      }
+  ion-content{
+    background: linear-gradient(to bottom,color($colors, light)280px,color($colors,light)0%);
+  }
+  .innercard{
+    border-radius: 6px;
+    background-color: #f4f4f4;
+  }
 
   .icon {
     padding: 5px

@@ -30,6 +30,9 @@ export class OtpPage {
   public filling_id
   public vendor_id
   public showSummary
+  public supplyData
+  public number
+  public vehicle_id
   constructor(public navCtrl: NavController, public navParams: NavParams,private formBuilder :FormBuilder,public apiTalk:ApiTalkProvider,
     public cp:ComponentsProvider,public mdlCtrl:ModalController) {
     this.user = this.formBuilder.group({
@@ -43,8 +46,24 @@ export class OtpPage {
     this.showSummary = navParams.get('showSummary'); 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OtpPage');
+  async ionViewDidLoad() {
+    this.vehicle_id = await this.cp.storageGet('vehicle_id')
+   let detail= await this.fetchData();
+   console.log(detail['json'])
+
+    if(detail['json'].contact_number){
+      this.number = detail['json'].contact_number;
+    }
+    if(this.data.contact_person_number){
+      this.number = this.data.contact_person_number;
+    }
+    else{
+      this.number=this.data.customer_number
+    }
+  }
+  async fetchData(){
+    let res = await this.apiTalk.getData(Config.API_URL + Config.driver + '/operation?vehicle_id='+this.vehicle_id)
+    return res
   }
   verifyOtp(){
     if(!this.filling_id){
@@ -98,8 +117,10 @@ export class OtpPage {
       let obj = {}
       obj['order_supply_id'] = this.data.order_supply_id
       obj['type'] = eTankUpOperation.supply
+      obj['resend'] = true
+
       this.cp.presentLoadingText()
-      return this.apiTalk.postData(Config.API_URL + '/otp/generate',obj)
+      return this.apiTalk.postData('http://15.206.67.208:3000/api-v3' + '/otp/generate',obj)
       .then(r =>{
         this.cp.dismisLoading()
       })
@@ -109,8 +130,10 @@ export class OtpPage {
       obj['filling_id'] = this.filling_id
       obj['vendor_id'] = this.vendor_id
       obj['type'] = eTankUpOperation.filling
+      obj['resend'] = true
+
       this.cp.presentLoadingText()
-      return this.apiTalk.postData(Config.API_URL + '/otp/generate',obj)
+      return this.apiTalk.postData('http://15.206.67.208:3000/api-v3' + '/otp/generate',obj)
       .then(r =>{
         this.cp.dismisLoading()
       })
@@ -128,7 +151,9 @@ export class OtpPage {
           obj['name'] = data.name
           obj['type'] = eTankUpOperation.supply
           obj['phone_number'] = data.phone_number
-          return this.apiTalk.postData(Config.API_URL + '/otp/generate?bypass='+true,obj)
+          obj['resend'] = true
+
+          return this.apiTalk.postData('http://15.206.67.208:3000/api-v3' + '/otp/generate?bypass='+true,obj)
           .then(result => {
             this.cp.presentAlert(result['json'].msg)
           })
@@ -140,7 +165,9 @@ export class OtpPage {
           obj['name'] = data.name
           obj['type'] = eTankUpOperation.filling
           obj['phone_number'] = data.phone_number
-          return this.apiTalk.postData(Config.API_URL + '/otp/generate?bypass='+true,obj)
+          obj['resend'] = true
+
+          return this.apiTalk.postData('http://15.206.67.208:3000/api-v3' + '/otp/generate?bypass='+true,obj)
           .then(result => {
             this.cp.presentAlert(result['json'].msg)
           })
