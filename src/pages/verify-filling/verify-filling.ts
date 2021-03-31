@@ -26,11 +26,9 @@ public total_filled_quantity
 public edit =true
   constructor(public navCtrl: NavController,public cp:ComponentsProvider, public navParams: NavParams,public apiTalk:ApiTalkProvider) {
     this.supplyDetails = navParams.get('supplyDetails');
-    console.log(this.supplyDetails,"dasd")
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad VerifyFillingPage');
     this.getData()
   }
   doRefresh(refresher) { 
@@ -45,7 +43,6 @@ public edit =true
       this.total_changed_quantity = res['json'].total_changed_quantity
       this.total_filled_quantity = res['json'].total_filled_quantity
       this.supplyData = res['json'].data
-      console.log(res['json'])
     })
   }
   payment(){

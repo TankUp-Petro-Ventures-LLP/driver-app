@@ -2,4 +2,16 @@ payment-methods {
 .payment{
     background: linear-gradient(to bottom,color($colors, light)280px,color($colors,light)0%) !important;
 }
+ion-label{
+    margin-left: 5%;
+    font-size: 18;
+    font-weight: bold;
+}
+ion-select{
+    width: 30%;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(94, 94, 94);
+    text-transform: uppercase;
+}
 }
