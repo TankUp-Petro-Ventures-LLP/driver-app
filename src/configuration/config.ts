@@ -1,10 +1,10 @@
 export class Config{
     static _API_URL : string = 'http://13.126.96.232:3000/api/';
 
-    static API_URL = 'http://13.126.96.232:3000/api-v3';
+    // static API_URL = 'http://13.126.96.232:3000/api-v3';
     // static API_URL = 'http://localhost:3000/api-v3';
 
-    // static API_URL : string = 'http://192.168.1.221:3000/api-v3';
+    static API_URL : string = 'http://192.168.1.221:3000/api-v3';
 
     static METER_URL = (vehicle_id) => {
         return 'vehicle/'+vehicle_id+'/meter';
