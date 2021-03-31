@@ -50,8 +50,8 @@ export class OnAppLoad {
       return this.androidPermissions.requestPermissions(requestsList);
     }
 
-    requestLoction(){
-        return this.locationAccuracy.canRequest().then((canRequest: boolean) => {
+    async requestLoction(){
+        return this.locationAccuracy.canRequest().then(async (canRequest: boolean) => {
             console.log(canRequest)
           if(canRequest) {
             // the accuracy option will be ignored by iOS
@@ -59,11 +59,15 @@ export class OnAppLoad {
               () => {return true},
               error => {
                 //   console.log(error)
+                this.requestLoction();
                   return error
+
               }
             );
           }
-        
+        else{
+          await this.execute();
+        }
         });
     }
 }

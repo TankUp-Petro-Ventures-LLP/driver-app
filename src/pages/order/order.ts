@@ -39,7 +39,6 @@ export class OrderPage {
     blur.classList.toggle('active')
     let permission = this.mdlCtrl.create(MessageActionModalComponent, {msg : MessageConfig.startDelivery})
     permission.present()
-
     permission.onDidDismiss(async data => {
       if(data){
         this.cp.presentLoadingText();
