@@ -1,20 +1,20 @@
-payment-details {
-  .card{
-    border-radius: 6px;
-    background: linear-gradient(to bottom,color($colors, light)280px,color($colors,light)0%) !important;
-  }
-    table {
-        width: 100%;
-      }
-      
-      th {
-        height: 50px;
-      }
-
-    td{
-        padding: 3px;
-    }
-    a{
-      font-size: 18pt
-    }
+.card{
+  border-radius: 6px;
 }
+  a{
+    font-size: 18pt
+  }
+  .amount{
+    text-align-last: right;
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+  }
+  p {
+    color: rgb(129, 129, 129);
+    font-size: 18px;
+  }
+  p b {
+    font-size: 18px;
+    color: black;
+  }

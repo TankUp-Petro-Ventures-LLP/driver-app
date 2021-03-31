@@ -26,6 +26,7 @@ public total_filled_quantity
 public edit =true
   constructor(public navCtrl: NavController,public cp:ComponentsProvider, public navParams: NavParams,public apiTalk:ApiTalkProvider) {
     this.supplyDetails = navParams.get('supplyDetails');
+    console.log(this.supplyDetails,"dasd")
   }
 
   ionViewDidLoad() {
