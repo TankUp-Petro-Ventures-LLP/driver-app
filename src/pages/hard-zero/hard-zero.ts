@@ -68,6 +68,8 @@ export class HardZeroPage {
   }
 
   send(){
+    var blur= document.getElementById('blur');
+    blur.classList.toggle('active')
     this.obj = {}
     this.obj['meter_reading'] = this.dataFilling.value['meter_reading']
     this.obj['image'] = this.image
@@ -75,6 +77,7 @@ export class HardZeroPage {
     save.present()
     save.onDidDismiss( d => {
       if(d){
+        console.log(this.obj)
         this.cp.presentLoadingText()
         return this.apiTalk.postData(Config.API_URL+ '/vehicle/meter-reading?vehicle_id='+this.vehicle_id +'&type=HZ', this.obj)
         .then(async result => {
