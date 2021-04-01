@@ -120,7 +120,7 @@ export class OtpPage {
       obj['resend'] = true
 
       this.cp.presentLoadingText()
-      return this.apiTalk.postData('http://15.206.67.208:3000/api-v3' + '/otp/generate',obj)
+      return this.apiTalk.postData(Config.API_URL + '/otp/generate',obj)
       .then(r =>{
         this.cp.dismisLoading()
       })
@@ -133,7 +133,7 @@ export class OtpPage {
       obj['resend'] = true
 
       this.cp.presentLoadingText()
-      return this.apiTalk.postData('http://15.206.67.208:3000/api-v3' + '/otp/generate',obj)
+      return this.apiTalk.postData(Config.API_URL + '/otp/generate',obj)
       .then(r =>{
         this.cp.dismisLoading()
       })
@@ -153,7 +153,7 @@ export class OtpPage {
           obj['phone_number'] = data.phone_number
           obj['resend'] = true
 
-          return this.apiTalk.postData('http://15.206.67.208:3000/api-v3' + '/otp/generate?bypass='+true,obj)
+          return this.apiTalk.postData(Config.API_URL + '/otp/generate?bypass='+true,obj)
           .then(result => {
             this.cp.presentAlert(result['json'].msg)
           })
@@ -167,7 +167,7 @@ export class OtpPage {
           obj['phone_number'] = data.phone_number
           obj['resend'] = true
 
-          return this.apiTalk.postData('http://15.206.67.208:3000/api-v3' + '/otp/generate?bypass='+true,obj)
+          return this.apiTalk.postData(Config.API_URL + '/otp/generate?bypass='+true,obj)
           .then(result => {
             this.cp.presentAlert(result['json'].msg)
           })
